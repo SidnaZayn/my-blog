@@ -17,29 +17,61 @@ const { post } = Astro.props
 ---
 
 <DefaultLayout title={post.title} description={post.body} url={post.title}>
-  <div class="container">
-    <div class="mt-12">
-      <Breadcrumbs>
-        <BreadcrumbsItem href="/" label="Home" />
-        <BreadcrumbsItem href="/blog" label="Blog" />
-        <BreadcrumbsItem currentPage={true} label={post.title} />
-      </Breadcrumbs>
+  <div class="container flex">
+    <div class="w-4/5 flex-initial">
+      <div class="mt-12">
+        <Breadcrumbs>
+          <BreadcrumbsItem href="/" label="Home" />
+          <BreadcrumbsItem href="/blog" label="Blog" />
+          <BreadcrumbsItem currentPage={true} label={post.title} />
+        </Breadcrumbs>
+      </div>
+      <section class="my-12">
+        <div class="container">
+          <h1>{post.title}</h1><br />
+          <p>By userId: {post.userId}</p>
+        </div>
+      </section>
+      <section class="my-12">
+        <div class="container">
+          <p class="text-2xl">{post.body}</p>
+        </div>
+      </section>
+    </div>
+    <div class="w-1/5 flex-initial bg-slate-100 p-3">
+      <p class="is-active text-xl font-semibold">Judul Sidebar</p>
+      <div class="border-l-4 border-slate-300 dark:border-slate-800">
+        <ul class=" sidebar-1 mt-4">
+          <li class="px-0 mx-0">
+            <a href="#" class="border-l-4 pl-4 px-0 mx-0 border-transparent hover:border-slate-400 dark:hover:border-slate-500 text-slate-700 hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-300">
+              hahahaha
+            </a>
+          </li>
+          <li class="px-0 mx-0">
+            <a href="#" class="border-l-4 pl-4 px-0 mx-0 border-transparent hover:border-slate-400 dark:hover:border-slate-500 text-slate-700 hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-300">
+              hahahaha
+            </a>
+          </li>
+          <li class="px-0 mx-0">
+            <a href="#" class="border-l-4 pl-4 px-0 mx-0 border-transparent hover:border-slate-400 dark:hover:border-slate-500 text-slate-700 hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-300">
+              hahahaha
+            </a>
+          </li>
+          <li class="px-0 mx-0">
+            <a href="#" class="border-l-4 pl-4 px-0 mx-0 border-transparent hover:border-slate-400 dark:hover:border-slate-500 text-slate-700 hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-300">
+              hahahaha
+            </a>
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
-  <section class="my-12">
-    <div class="container">
-      <h1>{post.title}</h1><br />
-      <p>By userId: {post.userId}</p>
-    </div>
-  </section>
-  <section class="my-12">
-    <div class="container">
-      <p class="text-2xl">{post.body}</p>
-    </div>
-  </section>
 </DefaultLayout>
 
-<style lang="scss">
+<style lang="scss" scoped>
+  .sidebar-1{
+    grid-template-columns: auto;
+  }
   ul {
     display: grid;
     grid-template-columns: 1fr;
@@ -53,5 +85,11 @@ const { post } = Astro.props
     @media (min-width: 950px) {
       grid-template-columns: repeat(3, 1fr);
     }
+  }
+  .is-active {
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-decoration-style: dashed;
+    text-underline-offset: 7px;
   }
 </style>
