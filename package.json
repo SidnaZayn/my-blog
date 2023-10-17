@@ -11,7 +11,7 @@
     "preview": "astro preview"
   },
   "devDependencies": {
-    "@astrojs/mdx": "^1.0.2",
+    "@astrojs/mdx": "^1.1.0",
     "@astrojs/partytown": "^2.0.0",
     "@astrojs/tailwind": "^5.0.0",
     "@typescript-eslint/eslint-plugin": "^5.50.0",
@@ -29,5 +29,9 @@
     "sass": "^1.49.9",
     "svgo": "^2.8.0",
     "tailwindcss": "^3.2.7"
+  },
+  "dependencies": {
+    "@astrojs/vue": "^3.0.0",
+    "vue": "^3.3.4"
   }
 }
