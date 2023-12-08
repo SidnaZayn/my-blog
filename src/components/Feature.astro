@@ -34,7 +34,7 @@ const { title = 'Title', src = 'https://fakeimg.pl/640x360', href } = Astro.prop
       content: '';
       position: absolute;
     }
-
+    
     &::before {
       inset: 0;
       background-color: var(--neutral-100);
@@ -43,11 +43,12 @@ const { title = 'Title', src = 'https://fakeimg.pl/640x360', href } = Astro.prop
       box-shadow: 0 0 0 6px var(--neutral-100);
       z-index: 1;
     }
-
+  }
+  .feature:hover {
     &::after {
       background-color: var(--action-color);
       inset: 1rem -0.85rem -0.85rem 1rem;
-      border-radius: 1rem;
+      border-radius: 1.5rem;
       z-index: 0;
     }
   }

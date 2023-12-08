@@ -31,7 +31,7 @@
     "tailwindcss": "^3.2.7"
   },
   "dependencies": {
-    "@astrojs/vue": "^3.0.0",
-    "vue": "^3.3.4"
+    "@astrojs/vue": "^3.0.4",
+    "vue": "^3.3.9"
   }
 }

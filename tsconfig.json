@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "outDir": "dist",
     "baseUrl": ".",
     "paths": {
       "@layouts/*": [
@@ -12,6 +13,8 @@
         "src/components/*"
       ]
     },
-    "jsx": "preserve"
+    "jsx": "preserve",
+    "allowJs": true,
+    "strictNullChecks": true
   }
 }
