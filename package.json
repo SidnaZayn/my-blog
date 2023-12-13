@@ -17,7 +17,7 @@
     "@typescript-eslint/eslint-plugin": "^5.50.0",
     "@typescript-eslint/parser": "^5.50.0",
     "accessible-astro-components": "^2.2.0",
-    "astro": "^3.0.10",
+    "astro": "^4.0.4",
     "astro-compress": "^2.0.6",
     "astro-icon": "^0.7.3",
     "eslint": "^8.33.0",
@@ -31,7 +31,7 @@
     "tailwindcss": "^3.2.7"
   },
   "dependencies": {
-    "@astrojs/vue": "^3.0.4",
+    "@astrojs/vue": "^4.0.3",
     "vue": "^3.3.9"
   }
 }

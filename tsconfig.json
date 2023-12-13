@@ -1,5 +1,8 @@
 {
+  "extends": "astro/tsconfigs/base",
   "compilerOptions": {
+    "allowJs": true,
+    "strictNullChecks": true,
     "outDir": "dist",
     "baseUrl": ".",
     "paths": {
@@ -14,7 +17,5 @@
       ]
     },
     "jsx": "preserve",
-    "allowJs": true,
-    "strictNullChecks": true
   }
 }
