@@ -2,11 +2,37 @@
 import type { CollectionEntry } from 'astro:content'
 import DefaultLayout from './DefaultLayout.astro'
 import FormattedDate from '../components/FormattedDate.astro'
+import BlogSideBar from "../components/vue/BlogSideBar.vue";
 import { Breadcrumbs, BreadcrumbsItem } from 'accessible-astro-components'
+import { getRecentPages } from '../lib/api'
 
 type Props = CollectionEntry<'projects'>['data']
 
 const { title, description, pubDate, updatedDate, heroImage, userId } = Astro.props
+
+const list = await getRecentPages()
+const listProject = [
+  {
+    slug:'markdown-style-guide',
+    title: 'Markdown Style Guide',
+  },
+  {
+    slug:'using-mdx',
+    title: 'Using MDX',
+  },
+  {
+    slug:'first-post',
+    title: 'First Post',
+  },
+  {
+    slug:'second-post',
+    title: 'Second Post',
+  },
+  {
+    slug:'third-post',
+    title: 'Third Post',
+  },
+]
 ---
 
 <DefaultLayout title={title} description={description} url={title}>
@@ -36,181 +62,9 @@ const { title, description, pubDate, updatedDate, heroImage, userId } = Astro.pr
         </div>
       </section>
     </div>
-    <div class="sidebar-container w-1/5 flex-initial">
-      <div class="h-fit rounded-md bg-slate-200 px-5 py-6 dark:bg-slate-600">
-        <p class="is-active text-xl font-semibold dark:text-slate-800">Blogs</p>
-        <div class="mt-6 max-h-60 overflow-y-auto border-l-4 border-slate-300 dark:border-slate-800">
-          <ul class="sidebar-1">
-            <li class="mx-0 px-0">
-              <a
-                href="#"
-                class="mx-0 border-l-4 border-transparent px-0 pl-4 text-slate-700 hover:border-slate-400 hover:text-slate-900 dark:text-emerald-400 dark:hover:border-slate-500 dark:hover:text-emerald-600"
-              >
-                hahahaha
-              </a>
-            </li>
-            <li class="mx-0 px-0">
-              <a
-                href="#"
-                class="mx-0 border-l-4 border-transparent px-0 pl-4 text-slate-700 hover:border-slate-400 hover:text-slate-900 dark:text-emerald-400 dark:hover:border-slate-500 dark:hover:text-emerald-600"
-              >
-                hahahaha
-              </a>
-            </li>
-            <li class="mx-0 px-0">
-              <a
-                href="#"
-                class="mx-0 border-l-4 border-transparent px-0 pl-4 text-slate-700 hover:border-slate-400 hover:text-slate-900 dark:text-emerald-400 dark:hover:border-slate-500 dark:hover:text-emerald-600"
-              >
-                hahahaha
-              </a>
-            </li>
-            <li class="mx-0 px-0">
-              <a
-                href="#"
-                class="mx-0 border-l-4 border-transparent px-0 pl-4 text-slate-700 hover:border-slate-400 hover:text-slate-900 dark:text-emerald-400 dark:hover:border-slate-500 dark:hover:text-emerald-600"
-              >
-                hahahaha
-              </a>
-            </li>
-            <li class="mx-0 px-0">
-              <a
-                href="#"
-                class="mx-0 border-l-4 border-transparent px-0 pl-4 text-slate-700 hover:border-slate-400 hover:text-slate-900 dark:text-emerald-400 dark:hover:border-slate-500 dark:hover:text-emerald-600"
-              >
-                hahahaha
-              </a>
-            </li>
-            <li class="mx-0 px-0">
-              <a
-                href="#"
-                class="mx-0 border-l-4 border-transparent px-0 pl-4 text-slate-700 hover:border-slate-400 hover:text-slate-900 dark:text-emerald-400 dark:hover:border-slate-500 dark:hover:text-emerald-600"
-              >
-                hahahaha
-              </a>
-            </li>
-            <li class="mx-0 px-0">
-              <a
-                href="#"
-                class="mx-0 border-l-4 border-transparent px-0 pl-4 text-slate-700 hover:border-slate-400 hover:text-slate-900 dark:text-emerald-400 dark:hover:border-slate-500 dark:hover:text-emerald-600"
-              >
-                hahahaha
-              </a>
-            </li>
-            <li class="mx-0 px-0">
-              <a
-                href="#"
-                class="mx-0 border-l-4 border-transparent px-0 pl-4 text-slate-700 hover:border-slate-400 hover:text-slate-900 dark:text-emerald-400 dark:hover:border-slate-500 dark:hover:text-emerald-600"
-              >
-                hahahaha
-              </a>
-            </li>
-            <li class="mx-0 px-0">
-              <a
-                href="#"
-                class="mx-0 border-l-4 border-transparent px-0 pl-4 text-slate-700 hover:border-slate-400 hover:text-slate-900 dark:text-emerald-400 dark:hover:border-slate-500 dark:hover:text-emerald-600"
-              >
-                hahahaha
-              </a>
-            </li>
-            <li class="mx-0 px-0">
-              <a
-                href="#"
-                class="mx-0 border-l-4 border-transparent px-0 pl-4 text-slate-700 hover:border-slate-400 hover:text-slate-900 dark:text-emerald-400 dark:hover:border-slate-500 dark:hover:text-emerald-600"
-              >
-                hahahaha
-              </a>
-            </li>
-          </ul>
-        </div>
-      </div>
-      <div class="mt-5 h-fit rounded-md bg-slate-200 px-5 py-6 dark:bg-slate-600">
-        <p class="is-active text-xl font-semibold dark:text-slate-800">Projects</p>
-        <div class="mt-6 max-h-60 overflow-y-auto border-l-4 border-slate-300 dark:border-slate-800">
-          <ul class="sidebar-1">
-            <li class="mx-0 px-0">
-              <a
-                href="#"
-                class="mx-0 border-l-4 border-transparent px-0 pl-4 text-slate-700 hover:border-slate-400 hover:text-slate-900 dark:text-emerald-400 dark:hover:border-slate-500 dark:hover:text-emerald-600"
-              >
-                hahahaha
-              </a>
-            </li>
-            <li class="mx-0 px-0">
-              <a
-                href="#"
-                class="mx-0 border-l-4 border-transparent px-0 pl-4 text-slate-700 hover:border-slate-400 hover:text-slate-900 dark:text-emerald-400 dark:hover:border-slate-500 dark:hover:text-emerald-600"
-              >
-                hahahaha
-              </a>
-            </li>
-            <li class="mx-0 px-0">
-              <a
-                href="#"
-                class="mx-0 border-l-4 border-transparent px-0 pl-4 text-slate-700 hover:border-slate-400 hover:text-slate-900 dark:text-emerald-400 dark:hover:border-slate-500 dark:hover:text-emerald-600"
-              >
-                hahahaha
-              </a>
-            </li>
-            <li class="mx-0 px-0">
-              <a
-                href="#"
-                class="mx-0 border-l-4 border-transparent px-0 pl-4 text-slate-700 hover:border-slate-400 hover:text-slate-900 dark:text-emerald-400 dark:hover:border-slate-500 dark:hover:text-emerald-600"
-              >
-                hahahaha
-              </a>
-            </li>
-            <li class="mx-0 px-0">
-              <a
-                href="#"
-                class="mx-0 border-l-4 border-transparent px-0 pl-4 text-slate-700 hover:border-slate-400 hover:text-slate-900 dark:text-emerald-400 dark:hover:border-slate-500 dark:hover:text-emerald-600"
-              >
-                hahahaha
-              </a>
-            </li>
-            <li class="mx-0 px-0">
-              <a
-                href="#"
-                class="mx-0 border-l-4 border-transparent px-0 pl-4 text-slate-700 hover:border-slate-400 hover:text-slate-900 dark:text-emerald-400 dark:hover:border-slate-500 dark:hover:text-emerald-600"
-              >
-                hahahaha
-              </a>
-            </li>
-            <li class="mx-0 px-0">
-              <a
-                href="#"
-                class="mx-0 border-l-4 border-transparent px-0 pl-4 text-slate-700 hover:border-slate-400 hover:text-slate-900 dark:text-emerald-400 dark:hover:border-slate-500 dark:hover:text-emerald-600"
-              >
-                hahahaha
-              </a>
-            </li>
-            <li class="mx-0 px-0">
-              <a
-                href="#"
-                class="mx-0 border-l-4 border-transparent px-0 pl-4 text-slate-700 hover:border-slate-400 hover:text-slate-900 dark:text-emerald-400 dark:hover:border-slate-500 dark:hover:text-emerald-600"
-              >
-                hahahaha
-              </a>
-            </li>
-            <li class="mx-0 px-0">
-              <a
-                href="#"
-                class="mx-0 border-l-4 border-transparent px-0 pl-4 text-slate-700 hover:border-slate-400 hover:text-slate-900 dark:text-emerald-400 dark:hover:border-slate-500 dark:hover:text-emerald-600"
-              >
-                hahahaha
-              </a>
-            </li>
-            <li class="mx-0 px-0">
-              <a
-                href="#"
-                class="mx-0 border-l-4 border-transparent px-0 pl-4 text-slate-700 hover:border-slate-400 hover:text-slate-900 dark:text-emerald-400 dark:hover:border-slate-500 dark:hover:text-emerald-600"
-              >
-                hahahaha
-              </a>
-            </li>
-          </ul>
-        </div>
-      </div>
+    <div class="sidebar-container w-3/12 flex-initial">      
+      <BlogSideBar class:list={'mb-3'} client:load title="Recent Blog" subhref="blog" list={list} />
+      <BlogSideBar class:list={'mb-3'} client:load title="Recent Project" subhref="project" list={listProject} />
     </div>
   </div>
 </DefaultLayout>

@@ -82,3 +82,27 @@ export async function getPageBySlug(slug) {
   return data?.post;
 }
 
+export async function getRecentPages() {
+  const data = await fetchAPI(`
+  {
+    posts(where:{orderby:{field:DATE,order:DESC}}) {
+      edges {
+        node {
+          slug
+          title
+          author{
+            node{
+              firstName
+              lastName
+              username
+            }
+          }
+        }
+      }
+    }
+  }
+  `);
+
+  return data.posts.edges.map(({ node }) => node);
+}
+
