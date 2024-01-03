@@ -3,7 +3,7 @@ import { getAllPagesWithSlugs, getPageBySlug } from '../../lib/api.js'
 import Layout from '../../layouts/BlogWordpressLayout.astro'
 export async function getStaticPaths() {
   const pagesWithSlugs = await getAllPagesWithSlugs()
-  return pagesWithSlugs.edges.map(({ node }) => {
+  return pagesWithSlugs.map((node) => {
     return {
       params: { slug: node.slug },
     }
@@ -14,18 +14,7 @@ const { slug } = Astro.params
 const page = await getPageBySlug(slug)
 const content = page.content.replaceAll('<p>', '<p class="my-2">')
 
-const startWord = '<figure class="wp-block-image">'
-const endWord = '</figure>'
-
-const startIndex = page.content.indexOf(startWord)
-const endIndex = page.content.indexOf(endWord) + endWord.length
-
-const htmlString = page.content.substring(startIndex, endIndex).trim()
-
-
-// Regular expression pattern to match the src attribute value
-const regex = /src="([^"]*)"/
-const heroImage = htmlString.match(regex)
+const featuredImage = `http://localhost/wordpress${page.featuredImage.node.uri}`
 ---
 
 <Layout
@@ -34,8 +23,9 @@ const heroImage = htmlString.match(regex)
   description={page.title}
   pubDate={page.date}
   author={page.author.node.name}
+  heroImage={featuredImage}
 />
-<p>{heroImage}</p>
+
 <style lang="scss">
   p {
     margin: 1.2em 0 1em 0 !important;

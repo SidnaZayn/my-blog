@@ -4,7 +4,7 @@ import DefaultLayout from './DefaultLayout.astro'
 import FormattedDate from '../components/FormattedDate.astro'
 import { Breadcrumbs, BreadcrumbsItem } from 'accessible-astro-components'
 
-type Props = CollectionEntry<'blog'>['data']
+type Props = CollectionEntry<'projects'>['data']
 
 const { title, description, pubDate, updatedDate, heroImage, userId } = Astro.props
 ---
@@ -15,7 +15,7 @@ const { title, description, pubDate, updatedDate, heroImage, userId } = Astro.pr
       <div class="mt-12">
         <Breadcrumbs>
           <BreadcrumbsItem href="/" label="Home" />
-          <BreadcrumbsItem href="/blog" label="Blog" />
+          <BreadcrumbsItem href="/project" label="Project" />
           <BreadcrumbsItem currentPage={true} label={title} />
         </Breadcrumbs>
       </div>

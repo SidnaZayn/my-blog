@@ -27,12 +27,30 @@ export async function getAllPagesWithSlugs() {
           node {
             slug
             title
+            content
+            featuredImage{
+              node{
+                uri
+                altText
+              }
+            } 
           }
         }
       }
     }
     `);
-  return data?.posts;
+  const data_ = data?.posts.edges.map(({ node }) => {
+    const featuredImage = node.featuredImage.node.uri
+    const inputString = node.content
+
+    const firstNewlineIndex = inputString.indexOf("\n") + 1;
+    const secondNewlineIndex = inputString.indexOf("\n", firstNewlineIndex);
+
+    const extractedContent = inputString.substring(firstNewlineIndex, secondNewlineIndex);
+
+    return { title: node.title, slug: node.slug, featuredImage, tldr: extractedContent }
+  });
+  return data_;
 }
 
 export async function getPageBySlug(slug) {
@@ -46,6 +64,13 @@ export async function getPageBySlug(slug) {
           node{
             name
             username
+          }
+        }
+        featuredImage{
+          node{
+            altText
+            databaseId
+            uri
           }
         }
         title
