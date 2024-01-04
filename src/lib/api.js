@@ -30,7 +30,7 @@ export async function getAllPagesWithSlugs() {
             content
             featuredImage{
               node{
-                uri
+                sourceUrl
                 altText
               }
             } 
@@ -40,7 +40,7 @@ export async function getAllPagesWithSlugs() {
     }
     `);
   const data_ = data?.posts.edges.map(({ node }) => {
-    const featuredImage = node.featuredImage.node.uri
+    const featuredImage = node.featuredImage.node.sourceUrl
     const inputString = node.content
 
     const firstNewlineIndex = inputString.indexOf("\n") + 1;
@@ -70,7 +70,7 @@ export async function getPageBySlug(slug) {
           node{
             altText
             databaseId
-            uri
+            sourceUrl
           }
         }
         title

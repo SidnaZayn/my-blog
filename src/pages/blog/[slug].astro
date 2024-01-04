@@ -14,7 +14,7 @@ const { slug } = Astro.params
 const page = await getPageBySlug(slug)
 const content = page.content.replaceAll('<p>', '<p class="my-2">')
 
-const featuredImage = `http://localhost/wordpress${page.featuredImage.node.uri}`
+const featuredImage = `${page.featuredImage.node.sourceUrl}`
 ---
 
 <Layout

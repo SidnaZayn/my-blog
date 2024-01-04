@@ -3,14 +3,15 @@ import ResponsiveToggle from './ResponsiveToggle.astro'
 import { DarkMode } from 'accessible-astro-components'
 import { Image } from "astro:assets"
 
-const logo = "https://upload.wikimedia.org/wikipedia/commons/9/95/Vue.js_Logo_2.svg"
+const logo = "/icon.png"
 ---
 
 <div id="main-navigation" class="is-desktop py-8">
   <div class="container">
-    <a href="/blog" class="flex items-center gap-2 !no-underline">
-      <Image src={logo} alt="Your Logo" width="47" height="37" />
-      <span class="font-bold">Accessible Astro</span>
+    <a href="/blog" class="items-center gap-2 !no-underline hover:animate-[bounce_0.7s_ease-in-out_infinite]">
+      <!-- <Image src={logo} alt="Your Logo" width="30" height="30" /> -->
+      <p class="font-bold text-xl ps-1 tracking-[0.5em]">Z A Y N</p>
+      <p class="text-sm tracking-[0.3em] ">PAGE BLOG PROJECT</p>
     </a>
     <div class="wrapper">
       <nav class="desktop-menu" aria-label="Main navigation desktop">

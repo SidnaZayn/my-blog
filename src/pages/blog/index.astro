@@ -2,7 +2,7 @@
 import DefaultLayout from '../../layouts/DefaultLayout.astro'
 import Feature from '../../components/Feature.astro'
 import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts'
-import { getAllPagesWithSlugs, getPageBySlug } from '../../lib/api.js'
+import { getAllPagesWithSlugs } from '../../lib/api.js'
 
 const pages = await getAllPagesWithSlugs()
 ---
@@ -26,7 +26,7 @@ const pages = await getAllPagesWithSlugs()
               <Feature
                 title={node.title}
                 href={'/blog/' + node.slug}
-                src={`http://localhost/wordpress` + node.featuredImage}
+                src={node.featuredImage}
                 set:html={node.tldr}
               >                
               </Feature>
