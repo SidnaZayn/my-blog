@@ -34,10 +34,15 @@ const {
   </head>
   <body>
     <Header />
-    <main id="main-content">
-      <slot />
-    </main>
-    <Footer />
+    <div class="flex mt-[7rem] md:mt-0">
+      <aside class="p-3 flex justify-center items-end md:items-center h-96 md:h-full">
+        <slot name="aside" />
+      </aside>
+      <main id="main-content">
+        <slot />
+      </main>
+    </div>
+    <!-- <Footer /> -->
     <style lang="scss" is:global>
       // theme settings
       :root {

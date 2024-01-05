@@ -14,12 +14,15 @@
     "@astrojs/mdx": "^1.1.0",
     "@astrojs/partytown": "^2.0.0",
     "@astrojs/tailwind": "^5.0.0",
+    "@iconify-json/ion": "^1.1.15",
+    "@iconify-json/ri": "^1.1.18",
+    "@iconify/vue": "^4.1.1",
     "@typescript-eslint/eslint-plugin": "^5.50.0",
     "@typescript-eslint/parser": "^5.50.0",
     "accessible-astro-components": "^2.2.0",
     "astro": "^4.0.4",
     "astro-compress": "^2.0.6",
-    "astro-icon": "^0.7.3",
+    "astro-icon": "next",
     "dotenv": "^16.3.1",
     "eslint": "^8.33.0",
     "eslint-plugin-astro": "^0.23.0",
@@ -33,6 +36,8 @@
   },
   "dependencies": {
     "@astrojs/vue": "^4.0.3",
+    "@iconify-json/mdi": "^1.1.64",
+    "typed.js": "^2.1.0",
     "vue": "^3.3.9"
   }
 }

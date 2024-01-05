@@ -1,17 +1,17 @@
 ---
 import ResponsiveToggle from './ResponsiveToggle.astro'
 import { DarkMode } from 'accessible-astro-components'
-import { Image } from "astro:assets"
+import { Image } from 'astro:assets'
 
-const logo = "/icon.png"
+const logo = '/icon.png'
 ---
 
 <div id="main-navigation" class="is-desktop py-8">
   <div class="container">
-    <a href="/blog" class="items-center gap-2 !no-underline hover:animate-[bounce_0.7s_ease-in-out_infinite]">
+    <a href="/" class="transition-colors duration-500 ease-in-out items-center gap-2 !no-underline dropshadow-hover">
       <!-- <Image src={logo} alt="Your Logo" width="30" height="30" /> -->
-      <p class="font-bold text-xl ps-1 tracking-[0.5em]">Z A Y N</p>
-      <p class="text-sm tracking-[0.3em] ">PAGE BLOG PROJECT</p>
+      <p class="ps-1 text-xl font-bold tracking-[0.5em]">Z A Y N</p>
+      <p class="text-sm tracking-[0.3em]">PAGE BLOG PROJECT</p>
     </a>
     <div class="wrapper">
       <nav class="desktop-menu" aria-label="Main navigation desktop">
@@ -32,7 +32,7 @@ const logo = "/icon.png"
 
 <script>
   // variables
-  const mainNav : any = document.querySelector('#main-navigation')
+  const mainNav: any = document.querySelector('#main-navigation')
   const mainMenu = mainNav.querySelector('ul')
   const dropdownMenus = [...document.querySelectorAll('.has-dropdown button')]
 
@@ -57,8 +57,8 @@ const logo = "/icon.png"
   }
 
   const checkMenuSize = () => {
-    const mainNavWidth  = mainNav.getBoundingClientRect().width
-    const desktopMenuWidth :any = document.querySelector('.desktop-menu')?.getBoundingClientRect().width
+    const mainNavWidth = mainNav.getBoundingClientRect().width
+    const desktopMenuWidth: any = document.querySelector('.desktop-menu')?.getBoundingClientRect().width
     const logoWidthBuffer = 300
     const totalMenuWidth = Math.round(desktopMenuWidth) + logoWidthBuffer
 
@@ -113,7 +113,7 @@ const logo = "/icon.png"
       const element = event.target as Element
       const currentMenuItem = element.closest('li')
       const menuItems = [...mainMenu.querySelectorAll('.menu-item')]
-      const currentDropdownMenu :any = element.closest('.has-dropdown button')
+      const currentDropdownMenu: any = element.closest('.has-dropdown button')
       const currentDropdownMenuItem = element.closest('.has-dropdown li')
       const currentIndex = menuItems.findIndex((item) => item === currentMenuItem)
 
@@ -155,7 +155,7 @@ const logo = "/icon.png"
       }
 
       if (currentDropdownMenuItem) {
-        const currentDropdownList :any = currentDropdownMenuItem.parentNode
+        const currentDropdownList: any = currentDropdownMenuItem.parentNode
         const dropdownMenuItems = [...currentDropdownList.querySelectorAll('li')]
         const currentIndex = dropdownMenuItems.findIndex((item) => item === currentDropdownMenuItem)
 
@@ -180,7 +180,7 @@ const logo = "/icon.png"
         }
 
         if (key === 'Escape') {
-          const currentDropdownMenu :any = (currentDropdownList as Element).previousElementSibling
+          const currentDropdownMenu: any = (currentDropdownList as Element).previousElementSibling
           targetItem = currentDropdownMenu.parentNode
           closeAllDropdownMenus()
         }
@@ -405,5 +405,9 @@ const logo = "/icon.png"
         box-shadow: none;
       }
     }
+  }
+
+  .dropshadow-hover:hover{
+    filter:drop-shadow(0px 0px 8px rgb(6, 223, 223));
   }
 </style>

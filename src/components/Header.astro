@@ -1,10 +1,10 @@
 ---
 import Navigation from '../components/Navigation.astro'
 import { SkipLinks } from 'accessible-astro-components'
-import { Icon } from 'astro-icon'
+import { Icon } from 'astro-icon/components'
 ---
 
-<header>
+<header class="fixed md:relative inset-x-0 top-0 z-50 dark:bg-[#161618]">
   <SkipLinks />
   <Navigation>
     <li class="menu-item">
@@ -15,11 +15,6 @@ import { Icon } from 'astro-icon'
     </li>
     <li class="menu-item">
       <a href="/about/">About</a>
-    </li>
-    <li class="menu-item type-icon">
-      <a href="https://github.com/sidnazayn" title="Go to the GitHub page">
-        <Icon pack="ri" name="github-fill" />
-      </a>
     </li>
   </Navigation>
 </header>
