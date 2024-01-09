@@ -1,16 +1,16 @@
 <template>
-  <div class="text-slate-900 flex items-center justify-end md:justify-center">
+  <div class="text-slate-900 items-center justify-end hidden lg:flex lg:justify-center">
     <div class="grid grid-cols-1 gap-y-8">
       <a href="https://github.com/sidnazayn" title="Go to the GitHub page">
         <Icon icon="ri:github-fill" class="h-8 w-8" />
       </a>
-      <a href="https://www.linkedin.com/in/sidna-muhammad-zen-1a0898180/" title="Go to the GitHub page">
+      <a href="https://www.linkedin.com/in/sidna-muhammad-zen-1a0898180/" title="Go to the Linkdin">
         <Icon icon="ri:linkedin-box-fill" class="h-8 w-8" />
       </a>
-      <a href="https://twitter.com/talkativepeep" title="Go to the GitHub page">
+      <a href="https://twitter.com/talkativepeep" title="Go to the X">
         <Icon icon="ri:twitter-x-fill" class="h-8 w-8" />
       </a>
-      <a href="https://medium.com/@sidnazayn11" title="Go to the GitHub page">
+      <a href="https://medium.com/@sidnazayn11" title="Go to the medium">
         <Icon icon="ri:medium-fill" class="h-8 w-8" />
       </a>
     </div>

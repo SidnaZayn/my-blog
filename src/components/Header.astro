@@ -1,10 +1,10 @@
 ---
 import Navigation from '../components/Navigation.astro'
 import { SkipLinks } from 'accessible-astro-components'
-import { Icon } from 'astro-icon/components'
+
 ---
 
-<header class="fixed md:relative inset-x-0 top-0 z-50 dark:bg-[#161618]">
+<header class="fixed md:relative inset-x-0 top-0 z-50 bg-white dark:bg-[#161618]">
   <SkipLinks />
   <Navigation>
     <li class="menu-item">
@@ -12,6 +12,9 @@ import { Icon } from 'astro-icon/components'
     </li>
     <li class="menu-item">
       <a href="/blog/">Blog</a>
+    </li>
+    <li class="menu-item">
+      <a href="/project/">Project</a>
     </li>
     <li class="menu-item">
       <a href="/about/">About</a>

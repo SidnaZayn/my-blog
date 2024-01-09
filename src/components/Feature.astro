@@ -3,14 +3,14 @@ const { title = 'Title', src = 'http://localhost/wordpress/index.php/2023/12/19/
 ---
 
 <div class="feature flex flex-col gap-4">
-  <img src={src}>
+  <img src={src} class="w-auto">
   <div class="content">
     <a href={href}> <h3>{title}</h3></a>
     <p>
       <slot>Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic, corporis.</slot>
     </p>
     <br>
-    <a role="button" class="border-0 bg-emerald-800 hover:bg-transparent hover:text-emerald-200 hover:border-emerald-200 hover:border-2 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2" href={href}>read more</a>
+    <a role="button" class="border-0 bg-emerald-800 hover:bg-transparent hover:text-emerald-200 dark:text-emerald-200 hover:border-emerald-200 hover:border-2 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2" href={href}>read more</a>
   </div>
 </div>
 
@@ -19,7 +19,7 @@ const { title = 'Title', src = 'http://localhost/wordpress/index.php/2023/12/19/
 
   .feature {
     position: relative;
-    width: calc(100% - 0.5rem);
+    width: 20.5rem;
     padding: 2rem;
 
     > * {
