@@ -3,54 +3,65 @@ dotenv.config();
 const API_URL = process.env.WP_URL;
 
 async function fetchAPI(query, { variables } = {}) {
-  const headers = { 'Content-Type': 'application/json' };
-  const res = await fetch(API_URL, {
-    method: 'POST',
-    headers,
-    body: JSON.stringify({ query, variables }),
-  });
+  try {
+    const headers = { 'Content-Type': 'application/json' };
+    const res = await fetch(API_URL, {
+      method: 'POST',
+      headers,
+      body: JSON.stringify({ query, variables }),
+    });
 
-  const json = await res.json();
-  if (json.errors) {
-    console.log(json.errors);
-    throw new Error('Failed to fetch API');
+    let json = await res.json();
+    if (json.errors) {
+      console.log(json.errors);
+      throw new Error('Failed to fetch API');
+    }
+
+    return json.data;
+  } catch (error) {
+    return { msg: "error", error }
   }
-
-  return json.data;
 }
 
 export async function getAllPagesWithSlugs() {
-  const data = await fetchAPI(`
-    {
-      posts {
-        edges {
-          node {
-            slug
-            title
-            content
-            featuredImage{
-              node{
-                sourceUrl
-                altText
-              }
-            } 
+  try {
+    const data = await fetchAPI(`
+      {
+        posts {
+          edges {
+            node {
+              slug
+              title
+              content
+              featuredImage{
+                node{
+                  sourceUrl
+                  altText
+                }
+              } 
+            }
           }
         }
       }
-    }
-    `);
-  const data_ = data?.posts.edges.map(({ node }) => {
-    const featuredImage = node.featuredImage.node.sourceUrl
-    const inputString = node.content
+      `);
 
-    const firstNewlineIndex = inputString.indexOf("\n") + 1;
-    const secondNewlineIndex = inputString.indexOf("\n", firstNewlineIndex);
+    if (data.msg === "error") throw new Error("failed to fetch API");
 
-    const extractedContent = inputString.substring(firstNewlineIndex, secondNewlineIndex);
+    const data_ = data?.posts.edges.map(({ node }) => {
+      const featuredImage = node.featuredImage.node.sourceUrl
+      const inputString = node.content
 
-    return { title: node.title, slug: node.slug, featuredImage, tldr: extractedContent }
-  });
-  return data_;
+      const firstNewlineIndex = inputString.indexOf("\n") + 1;
+      const secondNewlineIndex = inputString.indexOf("\n", firstNewlineIndex);
+
+      const extractedContent = inputString.substring(firstNewlineIndex, secondNewlineIndex);
+
+      return { title: node.title, slug: node.slug, featuredImage, tldr: extractedContent }
+    });
+    return data_;
+  } catch (error) {
+    console.log(error)
+  }
 }
 
 export async function getPageBySlug(slug) {
