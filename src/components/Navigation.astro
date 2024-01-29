@@ -1,8 +1,10 @@
 ---
 import ResponsiveToggle from './ResponsiveToggle.astro'
 import { DarkMode } from 'accessible-astro-components'
-import { Icon } from "astro-icon/components";
-
+import GithubFill from "./icons/GithubFill.astro";
+import LinkedinBoxFill from "./icons/LinkedinBoxFill.astro";
+import TwitterXFill from "./icons/TwitterXFill.astro";
+import MediumFill from "./icons/MediumFill.astro";
 ---
 
 <div id="main-navigation" class="is-desktop py-8">
@@ -28,16 +30,16 @@ import { Icon } from "astro-icon/components";
       <div class="flex justify-start mt-3">
         <div class="grid grid-cols-4 gap-4">
           <a href="https://github.com/sidnazayn" title="Go to the GitHub page">
-            <Icon name="ri:github-fill" class="h-6 w-6" />
+            <GithubFill class="h-6 w-6" />
           </a>
           <a href="https://www.linkedin.com/in/sidna-muhammad-zen-1a0898180/" title="Go to the Linkdin">
-            <Icon name="ri:linkedin-box-fill" class="h-6 w-6" />
+            <LinkedinBoxFill class="h-6 w-6" />
           </a>
           <a href="https://twitter.com/talkativepeep" title="Go to the X">
-            <Icon name="ri:twitter-x-fill" class="h-6 w-6" />
+            <TwitterXFill class="h-6 w-6" />
           </a>
           <a href="https://medium.com/@sidnazayn11" title="Go to the medium">
-            <Icon name="ri:medium-fill" class="h-6 w-6" />
+            <MediumFill class="h-6 w-6" />
           </a>
         </div>        
       </div>
