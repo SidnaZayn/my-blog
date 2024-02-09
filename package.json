@@ -38,6 +38,7 @@
     "@astrojs/netlify": "^4.1.1",
     "@astrojs/vue": "^4.0.3",
     "@iconify-json/mdi": "^1.1.64",
+    "animejs": "^3.2.2",
     "typed.js": "^2.1.0",
     "vue": "^3.3.9"
   }
