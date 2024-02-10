@@ -136,9 +136,16 @@ declare module 'astro:content' {
 
 	type ContentEntryMap = {
 		"projects": {
-"first-post.md": {
-	id: "first-post.md";
-  slug: "first-post";
+"deteksi-plat.md": {
+	id: "deteksi-plat.md";
+  slug: "deteksi-plat";
+  body: string;
+  collection: "projects";
+  data: InferEntrySchema<"projects">
+} & { render(): Render[".md"] };
+"kabarduka.com.md": {
+	id: "kabarduka.com.md";
+  slug: "kabardukacom";
   body: string;
   collection: "projects";
   data: InferEntrySchema<"projects">
@@ -150,16 +157,16 @@ declare module 'astro:content' {
   collection: "projects";
   data: InferEntrySchema<"projects">
 } & { render(): Render[".md"] };
-"second-post.md": {
-	id: "second-post.md";
-  slug: "second-post";
+"online-wedding-invitation.md": {
+	id: "online-wedding-invitation.md";
+  slug: "online-wedding-invitation";
   body: string;
   collection: "projects";
   data: InferEntrySchema<"projects">
 } & { render(): Render[".md"] };
-"third-post.md": {
-	id: "third-post.md";
-  slug: "third-post";
+"spk-motor-bekas.md": {
+	id: "spk-motor-bekas.md";
+  slug: "spk-motor-bekas";
   body: string;
   collection: "projects";
   data: InferEntrySchema<"projects">

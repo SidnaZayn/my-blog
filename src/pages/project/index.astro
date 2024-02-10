@@ -15,13 +15,13 @@ const postsLen = posts.length
   <section class="my-12">
     <div class="space-content container">
       <h1>Project</h1>
-      <p class="text-2xl">
+      <p class="text-lg md:text-2xl">
         here's all my project placed. enjoy! 🍺
       </p>
     </div>
   </section>
   <section class="my-12">
-    <div class="container">
+    <div class="container flex justify-center">
       <!-- <p class="text-sm"><em>Post {page.start + 1} through {page.end + 1} of {page.total} total posts</em></p> -->
       <ul class="my-3">
         {
@@ -34,17 +34,6 @@ const postsLen = posts.length
           ))
         }
       </ul>
-
-      <!-- <div class="mt-12 grid place-content-center">
-        <Pagination
-          firstPage={page.url.prev ? '/blog' : null}
-          previousPage={page.url.prev ? page.url.prev : null}
-          nextPage={page.url.next ? page.url.next : null}
-          lastPage={page.url.next ? `/blog/${Math.round(page.total / page.size)}` : null}
-          currentPage={page.currentPage}
-          totalPages={Math.round(page.total / page.size)}
-        />
-      </div> -->
     </div>
   </section>
 </DefaultLayout>
