@@ -11,7 +11,7 @@ const pages = (await getAllPagesWithSlugs()) || false
 <DefaultLayout title={SITE_TITLE} description={SITE_DESCRIPTION}>
   {
     !pages ? (
-      <MaintancePage src='/about-img-no-bg.png' />
+      <MaintancePage src="/about-img-no-bg.png" />
     ) : (
       <>
         <section class="my-12">
@@ -22,7 +22,7 @@ const pages = (await getAllPagesWithSlugs()) || false
         </section>
         <section class="my-12">
           <div class="container flex justify-center">
-            <ul class="my-3">
+            <ul class="my-3 " id="fetures">
               {pages.map((node) => (
                 <li>
                   <Feature
@@ -42,7 +42,7 @@ const pages = (await getAllPagesWithSlugs()) || false
 </DefaultLayout>
 
 <style lang="scss">
-  ul {
+  #fetures {
     display: grid;
     grid-template-columns: 1fr;
     grid-gap: 4rem;
