@@ -9,10 +9,6 @@
   padding: 0 calc(2rem / 2);
   max-width: 100%;
 
-  @include breakpoint(small) {
-    padding: 0 0rem;
-  }
-
   @include breakpoint(medium) {
     padding: 0 2rem;
   }

@@ -39,7 +39,7 @@ const listProject = [
 
 <DefaultLayout title={title} description={description} url={title}>
   <div class="container flex">
-    <div class="w-4/5 flex-initial">
+    <div class="w-full md:w-4/5 flex-initial">
       <div class="mt-12">
         <Breadcrumbs>
           <BreadcrumbsItem href="/" label="Home" />
@@ -57,7 +57,7 @@ const listProject = [
         </div>
       </section>
       <section class="my-12">
-        <div class="container text-justify text-sm md:text-base" style="padding-right: 30px;">
+        <div class="container text-justify text-sm md:text-base md:pr-[30px]" >
           <slot>
             <p>{description}</p>
           </slot>
