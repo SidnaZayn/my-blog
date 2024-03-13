@@ -1,7 +1,8 @@
 <script setup>
-import { ref } from "vue";
-import anime from "animejs";
+import { ref } from 'vue'
+import anime from 'animejs'
 import '../../assets/style/about.css'
+import WorkHistoryCard from './components/WorkHistoryCard.vue'
 
 const title = 'About'
 const src = ref('/about-img.png')
@@ -9,35 +10,50 @@ const onTouch = (prom) => {
   if (prom === true) {
     setTimeout(() => {
       src.value = '/photo-bulat.png'
-    }, 100);
+    }, 100)
     anime({
       targets: '#img1-about',
-      rotateY: [{ value: "180deg", duration: 3000 }]
+      rotateY: [{ value: '180deg', duration: 3000 }],
     })
-  }else{
+  } else {
     setTimeout(() => {
       src.value = '/about-img.png'
-    }, 100);
+    }, 100)
     anime({
       targets: '#img1-about',
-      rotateY: [{ value: "0deg", duration: 3000 }]
+      rotateY: [{ value: '0deg', duration: 3000 }],
     })
   }
 }
+
+const skillsIP = [
+  'VueJs',
+  'Angular',
+  'Astro',
+  'ExpressJs',
+  'Directus',
+  'NestJs',
+  'NuxtJs',
+  'Tailwind',
+  'Vuetify',
+  'PostgreSQL',
+  'MongoDB',
+]
 </script>
 
 <template>
-  <div class="about">
-    <section class="hero mt-24 mb-12">
+  <div class="about flex flex-col gap-5">
+    <section class="hero mb-12 mt-24">
       <div class="container">
         <div class="grid grid-cols-1 items-center gap-24 lg:grid-cols-2">
           <div class="flex flex-col items-center gap-8 md:items-start">
             <h1 class="text-center text-6xl md:text-left lg:text-8xl">
-              <span class="text-gradient">Thanks You</span> <br> for your visit
+              <span class="text-gradient">Thanks You</span> <br />
+              for your visit
             </h1>
           </div>
           <div class="flex items-center justify-center md:justify-start">
-            <div class="hero-right" id="img1-about-container" @mouseenter="onTouch(true)" @mouseleave="onTouch(false)" >
+            <div class="hero-right" id="img1-about-container" @mouseenter="onTouch(true)" @mouseleave="onTouch(false)">
               <img :src="src" id="img1-about" class="img1 w-[60vw] md:w-[30vw]" decoding="async" />
             </div>
           </div>
@@ -46,21 +62,34 @@ const onTouch = (prom) => {
     </section>
     <section id="main">
       <div class="container">
-        <div class="grid grid-cols-1 gap-2 absolute">
+        <div class="grid grid-cols-1 gap-2">
           <h1>It's Me!</h1>
           <p class="text-wrap text-sm">
             Thank you so much for taking the time to visit my blog! Your presence means the world to me. I truly
-            appreciate
-            your interest in my content and the support you've shown. It is because of readers like you that I am able to
-            share my thoughts, ideas, and experiences.
+            appreciate your interest in my content and the support you've shown. It is because of readers like you that
+            I am able to share my thoughts, ideas, and experiences.
           </p>
           <p class="text-wrap text-sm">
-            Your visit not only encourages me to continue creating valuable
-            content but also motivates me to explore new topics and improve my writing. Once again, thank you for stopping
-            by and I hope you found my blog informative and enjoyable. Feel free to come back anytime as I'll continue to
-            provide fresh and engaging content for you to explore.
+            Your visit not only encourages me to continue creating valuable content but also motivates me to explore new
+            topics and improve my writing. Once again, thank you for stopping by and I hope you found my blog
+            informative and enjoyable. Feel free to come back anytime as I'll continue to provide fresh and engaging
+            content for you to explore.
           </p>
         </div>
+      </div>
+    </section>
+    <section id="work-history">
+      <div class="container">
+        <h1>Work Experience</h1>
+        <WorkHistoryCard
+          position="Web App Developer"
+          institude="Imani Prima"
+          period="2022 - Present"
+          src="https://imaniprima.co.id/wp-content/uploads/2021/03/logo.png"
+          :skills="skillsIP"
+        >
+          i work as developer here
+        </WorkHistoryCard>
       </div>
     </section>
   </div>
@@ -71,7 +100,7 @@ const onTouch = (prom) => {
   max-width: 10vw;
 }
 
-#img1-about-container{
+#img1-about-container {
   width: fit-content;
 }
 </style>
