@@ -15,13 +15,11 @@ const postsLen = posts.length
   <section class="my-12">
     <div class="space-content container">
       <h1>Project</h1>
-      <p class="text-lg md:text-2xl">
-        here's all my project placed. enjoy! 🍺
-      </p>
+      <p class="text-lg md:text-2xl">here's all my project placed. enjoy! 🍺</p>
     </div>
   </section>
   <section class="my-12">
-    <div class="container flex justify-center">
+    <div class="container flex">
       <!-- <p class="text-sm"><em>Post {page.start + 1} through {page.end + 1} of {page.total} total posts</em></p> -->
       <ul class="my-3" id="projects">
         {
@@ -39,18 +37,30 @@ const postsLen = posts.length
 </DefaultLayout>
 
 <style lang="scss">
-	ul {
-	  display: grid;
-	  grid-template-columns: 1fr;
-	  grid-gap: 4rem;
-  
-	  @media (min-width: 550px) {
-		grid-template-columns: repeat(2, 1fr);
-		grid-gap: 2rem;
-	  }
-  
-	  @media (min-width: 950px) {
-		grid-template-columns: repeat(3, 1fr);
-	  }
-	}
-  </style>
+  ul {
+    display: grid;
+    gap: 1.7rem;
+
+    @media screen and (min-width: 1024px) {
+      grid-template-columns: repeat(3,minmax(250px, 1fr));
+    }
+
+    @media screen and (min-width: 1025px) {
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+  }
+
+  li:nth-child(1) {
+    @media screen and (min-width: 1025px) {
+      grid-column: span 2;
+      grid-row: span 1;
+    }
+  }
+
+  li:nth-last-child(1) {
+    @media screen and (min-width: 1025px) {
+      grid-column: span 2;
+      grid-row: span 1;
+    }
+  }
+</style>

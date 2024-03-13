@@ -57,7 +57,7 @@ const listProject = [
         </div>
       </section>
       <section class="my-12">
-        <div class="container text-justify" style="padding-right: 30px;">
+        <div class="container text-justify text-sm md:text-base" style="padding-right: 30px;">
           <slot>
             <p>{description}</p>
           </slot>
@@ -68,7 +68,7 @@ const listProject = [
         </div>
       </section>
     </div>
-    <div class="sidebar-container w-3/12 flex-initial">
+    <div class="w-1/5 hidden lg:block">
       <BlogSideBar class:list={'mb-3'} client:load title="Recent Blog" subhref="blog" list={list} />
       <BlogSideBar class:list={'mb-3'} client:load title="Recent Project" subhref="project" list={listProject} />
     </div>
@@ -85,5 +85,13 @@ const listProject = [
     text-decoration-thickness: 2px;
     text-decoration-style: dashed;
     text-underline-offset: 7px;
+  }
+  .container{
+    @media screen and (max-width: 1024px) {
+      max-width: 980px;
+    }
+    @media screen and (max-width: 550px) {
+      max-width: 380px;
+    }
   }
 </style>

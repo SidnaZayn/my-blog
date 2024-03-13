@@ -12,7 +12,7 @@ const props = defineProps({
 </script>
 
 <template>
-  <div class="h-fit rounded-md bg-slate-200 px-5 py-6 dark:bg-gray-800">
+  <div class="h-fit rounded-md bg-slate-200 px-5 py-6 dark:bg-gray-800 ">
     <p class="is-active text-xl font-semibold dark:text-slate-400">{{ props.title }}</p>
     <div class="mt-6 max-h-60 overflow-y-auto border-l-4 border-slate-300 dark:border-gray-900">
       <ul class="sidebar-1" id="sb">

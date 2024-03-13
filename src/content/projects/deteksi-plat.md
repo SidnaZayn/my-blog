@@ -2,7 +2,7 @@
 title: 'deteksiplat.com'
 description: 'Automatic motorcycle plate number recognition (Indonesia) based on flask and computer vision methodologies'
 pubDate: 'Feb 2021'
-heroImage: '/blog-placeholder-3.jpg'
+heroImage: '/anpr.png'
 userId: "1"
 projectLink: 'https://github.com/SidnaZayn/deteksi-plat'
 ---
