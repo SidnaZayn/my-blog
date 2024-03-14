@@ -39,6 +39,22 @@ const skillsIP = [
   'PostgreSQL',
   'MongoDB',
 ]
+
+const skillsIPTrainee = [
+  'VueJs',
+  'NuxtJs',
+  'Pinia',
+  'VeeValidate',
+  'PrimeVue',
+  'BootstrapVue',
+  'ExpressJs',
+  'Sequelize',
+  'MySql',
+]
+
+const skillsKIP = ['Google Analytics', 'META ads', 'Figma', 'Adobe Illustrator', 'UI Design']
+
+const skillsNusantaraTechno = ['PHP', 'Bootstrap', 'MySql', 'Apache']
 </script>
 
 <template>
@@ -78,18 +94,62 @@ const skillsIP = [
         </div>
       </div>
     </section>
-    <section id="work-history">
+    <section id="work-history" class="mb-12">
       <div class="container">
-        <h1>Work Experience</h1>
-        <WorkHistoryCard
-          position="Web App Developer"
-          institude="Imani Prima"
-          period="2022 - Present"
-          src="https://imaniprima.co.id/wp-content/uploads/2021/03/logo.png"
-          :skills="skillsIP"
-        >
-          i work as developer here
-        </WorkHistoryCard>
+        <div class="grid grid-cols-1 gap-2">
+          <h1>Work Experience</h1>
+          <div class="relative w-full">
+            <div class="relative flex gap-8 overflow-x-auto">
+              <WorkHistoryCard
+                position="Software Engineer"
+                institude="PT. Imani Prima"
+                period="Jan 2022 - Present"
+                src="https://imaniprima.co.id/wp-content/uploads/2021/03/logo.png"
+                :skills="skillsIP"
+              >
+                i work as developer here
+              </WorkHistoryCard>
+              <WorkHistoryCard
+                position="Web App Developer Trainee"
+                institude="PT. Imani Prima"
+                period="Sept 2022 - Dec 2022"
+                src="https://imaniprima.co.id/wp-content/uploads/2021/03/logo.png"
+                :skills="skillsIPTrainee"
+              >
+                i work as developer trainee here
+              </WorkHistoryCard>
+              <WorkHistoryCard
+                position="Junior Digital Marketing"
+                institude="PT. Karya Indah Pertiwi"
+                period="Aug 2022 - Oct 2022"
+                src="https://kipertiwi.com/icons/logo_kip.png"
+                :skills="skillsKIP"
+              >
+                i work as Junior Digital Marketing here
+              </WorkHistoryCard>
+              <WorkHistoryCard
+                position="Web Developer"
+                institude="CV. Nusantara Techno"
+                period="Aug 2021 - Feb 2022"
+                :skills="skillsNusantaraTechno"
+              >
+                i work as web developer here
+              </WorkHistoryCard>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="Experience" class="mb-12">
+      <div class="container">
+        <div class="grid grid-cols-1 gap-2">
+          <h1>Experiences</h1>
+          <div class="relative w-full">
+            <div class="relative flex gap-8 overflow-x-auto">
+              
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   </div>
