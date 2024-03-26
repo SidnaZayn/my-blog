@@ -1,16 +1,16 @@
 <template>
-  <div class="work-card bg align-center flex flex-row gap-3 border-4 border-teal-800 dark:border-teal-400">
+  <div class="work-card bg align-center flex flex-col md:flex-row gap-3 border-4 border-teal-800 dark:border-teal-400">
     <slot name="logo"> </slot>
     <div class="text-left">
-      <p class="text-xl font-semibold">{{ props.position }}</p>
-      <p class="text-base dark:text-gray-400">{{ props.institude }}</p>
-      <p class="text-base dark:text-gray-400">{{ props.period }}</p>
+      <p class="text-base md:text-xl font-semibold">{{ props.position }}</p>
+      <p class="text-xs md:text-base dark:text-gray-400">{{ props.institude }}</p>
+      <p class="text-xs md:text-base dark:text-gray-400">{{ props.period }}</p>
       <br />
-      <p class="text-sm"><slot></slot></p>
+      <p class="text-xs md:text-sm text-justify"><slot></slot></p>
       <br />
       <div class="flex flex-wrap gap-1">
         <span
-          class="w-fit rounded-full bg-gray-700 px-2 text-xs text-white dark:text-gray-300"
+          class="w-fit rounded-full bg-gray-700 px-2 text-[7pt] md:text-xs text-white dark:text-gray-300"
           v-for="skill in props.skills"
           :key="skill"
         >
