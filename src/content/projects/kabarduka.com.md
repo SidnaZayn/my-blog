@@ -2,7 +2,7 @@
 title: 'Kabarduka.com'
 description: 'aplikasi untuk memenuhi segala kebutuhan berita duka'
 pubDate: 'Feb 2021'
-heroImage: '/blog-placeholder-3.jpg'
+heroImage: '/kabar-duka.jpg'
 userId: "1"
 ---
 

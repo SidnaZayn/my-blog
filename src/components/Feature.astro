@@ -1,16 +1,28 @@
 ---
-const { title = 'Title', src = 'https://images.pexels.com/photos/19733182/pexels-photo-19733182/free-photo-of-a-large-group-of-tall-buildings-in-the-distance.jpeg', href } = Astro.props
+const {
+  title = 'Title',
+  src = 'https://images.pexels.com/photos/19733182/pexels-photo-19733182/free-photo-of-a-large-group-of-tall-buildings-in-the-distance.jpeg',
+  href,
+} = Astro.props
 ---
 
-<div class="feature flex flex-col gap-4">
-  <img src={src} class="w-auto">
-  <div class="content">
-    <a href={href}> <h3>{title}</h3></a>
-    <p>
-      <slot>Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic, corporis.</slot>
-    </p>
-    <br>
-    <a role="button" class="border-0 bg-emerald-800 hover:bg-transparent hover:text-emerald-200 dark:text-emerald-200 hover:border-emerald-200 hover:border-2 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2" href={href}>read more</a>
+<div class="feature flex flex-col justify-between gap-4">
+  <div class="flex flex-col gap-4">
+    <img src={src} class="max-h-[150px] w-full object-cover" />
+    <div class="content max-w-auto h-full">
+      <a href={href} title={title}> <h4>{title}</h4></a>
+      <p class="text-xs md:text-sm">
+        <slot>Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic, corporis.</slot>
+      </p>
+      <br />
+    </div>
+  </div>
+  <div class="flex">
+    <a
+      role="button"
+      class="mb-0 me-2 rounded-lg border-0 bg-emerald-800 px-5 py-2.5 text-sm font-medium hover:border-2 hover:border-emerald-200 hover:bg-transparent hover:text-emerald-200 dark:text-emerald-200"
+      href={href}>read more</a
+    >
   </div>
 </div>
 
@@ -20,6 +32,7 @@ const { title = 'Title', src = 'https://images.pexels.com/photos/19733182/pexels
   .feature {
     position: relative;
     width: 20.5rem;
+    height: 28rem;
     padding: 2rem;
 
     > * {
@@ -36,7 +49,7 @@ const { title = 'Title', src = 'https://images.pexels.com/photos/19733182/pexels
       content: '';
       position: absolute;
     }
-    
+
     &::before {
       inset: 0;
       background-color: var(--neutral-100);
@@ -63,5 +76,19 @@ const { title = 'Title', src = 'https://images.pexels.com/photos/19733182/pexels
   :global(.darkmode .feature::before) {
     background-color: var(--dark-100);
     box-shadow: 0 0 0 6px var(--dark-100);
+  }
+
+  .content p {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .content h4 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
   }
 </style>
