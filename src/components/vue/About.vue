@@ -167,7 +167,7 @@ const usedTechStacks = [
   {
     name: 'TypeScript',
     src: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg',
-  }
+  },
 ]
 </script>
 
@@ -213,7 +213,7 @@ const usedTechStacks = [
         <div class="grid grid-cols-1 gap-2">
           <h1>Work Experience</h1>
           <div class="relative">
-            <div class="relative flex gap-4 overflow-x-auto md:gap-8">
+            <div class="no-scrollbar relative flex gap-4 overflow-x-auto md:gap-8">
               <WorkHistoryCard
                 position="Software Engineer"
                 institude="PT. Imani Prima"
@@ -258,12 +258,10 @@ const usedTechStacks = [
       <div class="mx-auto w-[90vw] px-8 md:container">
         <div class="grid grid-cols-1 gap-2">
           <h1>Stacks Used</h1>
-          <h3>Advanced</h3>
-          <div class="grid grid-cols-6 md:grid-cols-9">
-            <img v-for="skill in expertTechStacks" :key="skill" :src="skill.src" class="w-28" />
+          <div class="grid grid-cols-6 md:grid-cols-9 justify-center items-center">
+            <img v-for="skill in expertTechStacks" :key="skill" :src="skill.src" class="w-28 self-center" />
           </div>
-          <h3>Ever Used</h3>
-          <div class="grid grid-cols-10 md:grid-cols-12 gap-2">
+          <div class="grid grid-cols-10 gap-2 md:grid-cols-12">
             <img v-for="skill in usedTechStacks" :key="skill" :src="skill.src" class="w-16" />
           </div>
         </div>
@@ -279,5 +277,16 @@ const usedTechStacks = [
 
 #img1-about-container {
   width: fit-content;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.no-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 }
 </style>
