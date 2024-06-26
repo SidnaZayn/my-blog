@@ -12,7 +12,7 @@ type Props = CollectionEntry<'projects'>['data']
 
 const { title, description, pubDate, updatedDate, heroImage, userId, projectLink='https://github.com/sidnazayn' } = Astro.props
 
-const list = await getRecentPages()
+// const list = await getRecentPages()
 const listProject = [
   {
     slug: 'markdown-style-guide',
@@ -53,7 +53,6 @@ const listProject = [
           <br />
           <h1 class="mb-3">{title}</h1>
           <p class="mb-3 font-bold text-slate-700"><FormattedDate date={pubDate} /></p>
-          <p>By userId: {userId}</p>
         </div>
       </section>
       <section class="my-12">
@@ -69,8 +68,8 @@ const listProject = [
       </section>
     </div>
     <div class="w-1/5 hidden lg:block">
-      <BlogSideBar class:list={'mb-3'} client:load title="Recent Blog" subhref="blog" list={list} />
-      <BlogSideBar class:list={'mb-3'} client:load title="Recent Project" subhref="project" list={listProject} />
+      <!-- <BlogSideBar class:list={'mb-3'} client:load title="Recent Blog" subhref="blog" list={list} /> -->
+      <BlogSideBar class:list={'mb-3'} client:load title="Recent Projects" subhref="project" list={listProject} />
     </div>
   </div>
 </DefaultLayout>

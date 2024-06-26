@@ -12,11 +12,11 @@ const props = defineProps({
 </script>
 
 <template>
-  <div class="h-fit rounded-md bg-slate-200 px-5 py-6 dark:bg-gray-800 ">
-    <p class="is-active text-xl font-semibold dark:text-slate-400">{{ props.title }}</p>
-    <div class="mt-6 max-h-60 overflow-y-auto border-l-4 border-slate-300 dark:border-gray-900">
+  <div class="h-fit rounded-md px-5 py-6 dark:border-white border-2">
+    <p class="is-active text-xl font-semibold">{{ props.title }}</p>
+    <div class="mt-8 max-h-60 overflow-y-auto">
       <ul class="sidebar-1" id="sb">
-        <li class="mx-0 truncate px-0" v-for="page in props.list" :key="page.title">
+        <li class="mx-0 truncate px-0 text-teal-700 dark:text-teal-800" v-for="page in props.list" :key="page.title">
           <a :href="`/${props.subhref}/${page.slug}`" class="mx-0 border-l-4 border-transparent px-0 pl-4">
             {{ page.title }}
           </a>
