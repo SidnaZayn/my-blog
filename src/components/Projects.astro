@@ -1,0 +1,22 @@
+---
+import { getCollection } from 'astro:content'
+import SectionHeader from './compose/SectionHeader.astro'
+import Feature from './Feature.astro'
+const posts = (await getCollection('projects')).sort((a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf())
+const postsLen = posts.length
+---
+
+<div class="container">
+    <SectionHeader>Projects</SectionHeader>
+  <ul class="ml-1 my-3 grid grid-cols-1 md:grid-cols-3 gap-4" id="projects">
+    {
+      posts.map((post) => (
+        <li> 
+          <Feature title={post.data.title} href={'/project/' + post.slug} src={post.data.heroImage}>
+            {post.data.description}
+          </Feature>
+        </li>
+      ))
+    }
+  </ul>
+</div>

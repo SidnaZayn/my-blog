@@ -1,5 +1,5 @@
 <template>
-  <div class="items-center justify-end hidden lg:flex lg:justify-center mx-3">
+  <div class="items-center justify-start hidden lg:flex lg:justify-center mx-3">
     <div class="grid grid-cols-1 gap-y-8">
           <a href="https://github.com/sidnazayn" title="Go to the GitHub">
             <GithubFill class="h-8 w-8" />

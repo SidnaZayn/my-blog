@@ -1,0 +1,11 @@
+---
+import { Icon } from 'astro-icon/components'
+---
+
+<div class="flex justify-center items-center gap-5">
+    <Icon name="star-of-life" class="w-4 h-4 md:w-8 md:h-8 dark:text-white/50 animate-spin" />
+    <h1 class="text-center text-4xl md:text-6xl w-fit pb-4 bg-gradient-to-r from-emerald-600 via-green-500 to-green-400 inline-block text-transparent bg-clip-text">
+        <slot />
+    </h1>
+    <Icon name="star-of-life" class="w-4 h-4 md:w-8 md:h-8 dark:text-white/50 animate-spin" />
+</div>

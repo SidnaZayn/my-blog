@@ -4,9 +4,11 @@ import DefaultLayout from '../layouts/DefaultLayout.astro'
 import Hero from '../components/Hero.astro'
 import Feature from '../components/Feature.astro'
 import SideBar from "../components/vue/AsideNav.vue";
+import Projects from "../components/Projects.astro";
 ---
 
 <DefaultLayout title="Home">
   <Hero />
   <SideBar client:load slot="aside" />
+  <Projects />
 </DefaultLayout>

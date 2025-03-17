@@ -4,17 +4,17 @@ const { src = '/astronaut-hero-img.webp' } = Astro.props
 
 <section class="hero h-[100vh] flex justify-center items-center">
   <div class="mx-5">
-    <div class="grid grid-cols-1 items-center gap-8 lg:grid-cols-2 lg:gap-24">
-      <div class="flex flex-col items-center gap-8 lg:items-start">
-        <h1 class="text-center text-4xl lg:text-left lg:text-6xl">
+    <div class="grid grid-cols-1 items-center gap-8 xl:grid-cols-2 xl:gap-24">
+      <div class="flex flex-col items-center gap-8 xl:items-start">
+        <h1 class="text-center text-4xl xl:text-left xl:text-6xl">
           <slot>
             <p class="mb-3">Code Junkies</p><span class="text-gradient" id="sub_hero"></span>
           </slot>
         </h1>
-        <button class="btn-gradient dropshadow-hover hidden lg:block">EXPLORE</button>
+        <button class="btn-gradient dropshadow-hover hidden xl:block">EXPLORE</button>
       </div>
-      <img class="w-50 h-80 lg:h-4/5 mx-auto block dropshadow-img" src={src} alt="hero_img" decoding="async" />
-      <div class="flex justify-center lg:hidden">
+      <img class="w-50 h-80 xl:h-4/5 mx-auto block dropshadow-img" src={src} alt="hero_img" decoding="async" />
+      <div class="flex justify-center xl:hidden">
         <button class="btn-gradient dropshadow-hover">EXPLORE</button>
       </div>
     </div>
