@@ -5,10 +5,12 @@ import Hero from '../components/Hero.astro'
 import Feature from '../components/Feature.astro'
 import SideBar from "../components/vue/AsideNav.vue";
 import Projects from "../components/Projects.astro";
+import About from "../components/About.astro";
 ---
 
-<DefaultLayout title="Home">
+<DefaultLayout title="Portfolio">
   <Hero />
   <SideBar client:load slot="aside" />
   <Projects />
+  <About />
 </DefaultLayout>
