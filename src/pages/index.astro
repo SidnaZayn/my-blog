@@ -1,16 +1,24 @@
 ---
-
 import DefaultLayout from '../layouts/DefaultLayout.astro'
 import Hero from '../components/Hero.astro'
-import Feature from '../components/Feature.astro'
-import SideBar from "../components/vue/AsideNav.vue";
-import Projects from "../components/Projects.astro";
-import About from "../components/About.astro";
+import SideBar from '../components/vue/AsideNav.vue'
+import Projects from '../components/Projects.astro'
+import About from '../components/About.astro'
+import TechStacks from '../components/TechStacks.astro'
 ---
 
 <DefaultLayout title="Portfolio">
-  <Hero />
+  <section id="hero">
+    <Hero />
+  </section>
   <SideBar client:load slot="aside" />
-  <Projects />
-  <About />
+  <section id="about">
+    <About />
+  </section>
+  <section id="projects" class="mt-[10rem] md:mt-0">
+    <Projects />
+  </section>
+  <section id="techstacks" class="mt-[20rem]">
+    <TechStacks />
+  </section>
 </DefaultLayout>

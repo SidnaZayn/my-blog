@@ -1,0 +1,180 @@
+---
+import SectionHeader from './compose/SectionHeader.astro'
+const frontend = [
+  {
+    name: 'VueJs',
+    src: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original-wordmark.svg',
+  },
+  {
+    name: 'NuxtJs',
+    src: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nuxtjs/nuxtjs-original-wordmark.svg',
+  },
+  {
+    name: 'Vuetify',
+    src: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuetify/vuetify-original.svg',
+  },
+  {
+    name: 'PrimeVue',
+    src: 'https://www.primefaces.org/presskit/primevue-logo.svg',
+  },
+  {
+    name: 'Tailwind',
+    src: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg',
+  },
+  {
+    name: 'Angular',
+    src: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg',
+  },
+  {
+    name: 'Astro',
+    src: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/astro/astro-original.svg',
+  },
+  {
+    name: 'TypeScript',
+    src: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg',
+  },
+]
+
+const backend = [
+  {
+    name: 'ExpressJs',
+    src: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original-wordmark.svg',
+  },
+
+  {
+    name: 'Node Js',
+    src: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original-wordmark.svg',
+  },
+  {
+    name: 'Laravel',
+    src: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-original-wordmark.svg',
+  },
+  {
+    name: 'NestJs',
+    src: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nestjs/nestjs-original.svg',
+  },
+  {
+    name: 'Flask',
+    src: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original.svg',
+  },
+  {
+    name: 'Directus',
+    src: 'data:image/jpeg;base64,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',
+  },
+]
+
+const database = [
+  {
+    name: 'PostgreSQL',
+    src: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg',
+  },
+  {
+    name: 'MySql',
+    src: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg',
+  },
+  {
+    name: 'MongoDB',
+    src: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg',
+  },
+  {
+    name: 'Firebase',
+    src: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-original.svg',
+  },
+  {
+    name: 'Redis',
+    src: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original.svg',
+  },
+  {
+    name: 'Prisma',
+    src: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/prisma/prisma-original.svg',
+  },
+]
+
+const tools = [
+  {
+    name: 'Jest',
+    src: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jest/jest-plain.svg',
+  },
+  {
+    name: 'Jupyter',
+    src: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jupyter/jupyter-original.svg',
+  },
+  {
+    name: 'Tensorflow',
+    src: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg',
+  },
+  {
+    name: 'AWS',
+    src: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg',
+  },
+  {
+    name: 'Supabase',
+    src: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/supabase/supabase-original.svg',
+  },
+]
+---
+
+<div class="container">
+  <SectionHeader>My Stacks</SectionHeader>
+  <div class="mt-10 flex flex-col items-center justify-center">
+    <div class="mb-[2.75rem] flex flex-col items-center justify-center gap-4">
+      <h3>Front-End</h3>
+      <div class="grid grid-cols-3 md:grid-cols-8 w-11/12 gap-0 md:gap-2">
+        {
+          frontend.map((used) => (
+            <div class="logo-hover rounded-xl flex flex-col items-center justify-center gap-2 transition duration-700 hover:bg-emerald-300">
+              <img src={used.src} alt={used.name} class="h-6 w-6 md:h-12 md:w-12" />
+              <span>{used.name}</span>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+    <div class="mb-[2.75rem] flex flex-col items-center justify-center gap-4">
+      <h3>Back-End</h3>
+      <div class="grid grid-cols-3 md:grid-cols-6 w-11/12 gap-0 md:gap-2">
+        {
+          backend.map((used) => (
+            <div class="logo-hover rounded-xl flex flex-col items-center justify-center gap-2 transition duration-700 hover:bg-emerald-300">
+              <img src={used.src} alt={used.name} class="h-6 w-6 md:h-12 md:w-12" />
+              <span>{used.name}</span>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+    <div class="mb-[2.75rem] flex flex-col items-center justify-center gap-4">
+      <h3>Database</h3>
+      <div class="grid grid-cols-3 md:grid-cols-6 w-11/12 gap-0 md:gap-2">
+        {
+          database.map((used) => (
+            <div class="logo-hover rounded-xl flex flex-col items-center justify-center gap-2 transition duration-700 hover:bg-emerald-300">
+              <img src={used.src} alt={used.name} class="h-6 w-6 md:h-12 md:w-12" />
+              <span>{used.name}</span>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+    <div class="mb-[2.75rem] flex flex-col items-center justify-center gap-4">
+      <h3>Tools</h3>
+      <div class="grid grid-cols-3 md:grid-cols-5 w-11/12 gap-0 md:gap-2">
+        {
+          tools.map((used) => (
+            <div class="logo-hover rounded-xl flex flex-col items-center justify-center gap-2 transition duration-700 hover:bg-emerald-300">
+              <img src={used.src} alt={used.name} class="h-6 w-6 md:h-12 md:w-12" />
+              <span>{used.name}</span>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .logo-hover {
+    background-color: none;
+    padding: 10px;
+  }
+</style>

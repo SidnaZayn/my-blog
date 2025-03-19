@@ -2,4 +2,6 @@
 
 ## Todo List
 
-- [x] change icons to local icon component
+- [x] tech stacks page
+- [x] experience page
+- [x] contanct page
