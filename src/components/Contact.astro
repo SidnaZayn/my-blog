@@ -1,0 +1,116 @@
+---
+---
+
+<div class="container h-fit">
+  <div
+    id="card-contact"
+    class="card-contact mx-auto grid h-full w-[20rem] grid-cols-3 items-center rounded-xl bg-gradient-to-tr from-emerald-400 via-emerald-500 to-emerald-600 p-4 text-white md:w-full"
+  >
+    <h1 class="col-span-2 text-[0.75em] md:text-2xl" id="contact-text">GOT A PROJECT IN MIND?</h1>
+    <button
+      id="contact-button"
+      class="contact-button w-fit justify-self-end rounded border-2 border-black text-[0.65em] md:text-2xl font-bold md:tracking-widest text-black transition duration-700 hover:bg-white/30 hover:text-emerald-500 dark:border-white dark:text-white"
+      >CONTACT ME</button
+    >
+    <form id="contact-form" class="contact-form col-span-3 hidden">
+      <div class="grid grid-flow-col grid-rows-6 md:grid-rows-3 gap-4">
+        <input type="text" placeholder="Name" name="Name" class="contact-input" required />
+        <textarea placeholder="Message" class="contact-input row-span-2" required></textarea>
+        <input type="email" placeholder="Email" name="Email" class="contact-input" required />
+        <input type="text" placeholder="Company" name="Company" class="contact-input" required />
+        <button type="submit" class="contact-button w-full rounded-[0.5rem] border-2 border-black">SEND</button>
+      </div>
+    </form>
+  </div>
+  <script>
+    import anime from 'animejs'
+
+    const onClick = () => {
+      const contactText = document.getElementById('contact-text')
+      const contactButton = document.getElementById('contact-button')
+
+      if (contactButton && contactText) {
+        contactButton.classList.add('hidden')
+        contactText.classList.add('hidden')
+      }
+
+      const tl = anime.timeline({
+        easing: 'easeInOutQuad',
+        duration: 1000,
+      })
+
+      tl.add({
+        targets: '.card-contact',
+        rotateY: [{ value: '360deg', duration: 1000 }],
+        loop: false,
+      })
+      
+      document.querySelector('.contact-form')?.classList.remove('hidden')
+      
+      tl.add({
+        targets: '.contact-form',
+        opacity: 1,
+        loop: false,
+      })
+    }
+
+    const onSubmit = (event) => {
+      event.preventDefault()
+      const form = event.target
+      const formData = new FormData(form)
+      const data = Object.fromEntries(formData.entries())
+      form.reset()
+
+      const tl = anime.timeline({
+        easing: 'easeInOutQuad',
+        duration: 500,
+      })
+
+      tl.add({
+        targets: '.contact-form',
+        opacity: 0,
+        loop: false,
+      })
+      setTimeout(() => {
+        document.querySelector('.contact-form')?.classList.add('hidden')
+        
+        const contactText = document.getElementById('contact-text')
+        const contactButton = document.getElementById('contact-button')
+        
+        if (contactButton && contactText) {
+          contactButton.classList.remove('hidden')
+          contactText.classList.remove('hidden')
+          contactButton.style.opacity = '0'
+          contactText.style.opacity = '0'
+        }
+      }, 1000);
+      tl.add({
+        targets: '.card-contact',
+        rotateY: [{ value: '0deg', duration: 1000 }],
+        loop: false,
+      })
+      
+      tl.add({
+        targets: ['#contact-button', '#contact-text'],
+        opacity: 1,
+        loop: false,
+      })
+    }
+
+    document.getElementById('contact-button')?.addEventListener('click', onClick)
+    document.getElementById('contact-form')?.addEventListener('submit', onSubmit)
+  </script>
+</div>
+
+<style>
+  .contact-form {
+    opacity: 0;
+  }
+
+  .contact-input {
+    border: 2px solid black;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    color: black;
+  }
+</style>
