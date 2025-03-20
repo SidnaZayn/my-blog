@@ -118,11 +118,15 @@ const tools = [
   <SectionHeader>My Stacks</SectionHeader>
   <div class="mt-10 flex flex-col items-center justify-center">
     <div class="mb-[2.75rem] flex flex-col items-center justify-center gap-4">
-      <h3>Front-End</h3>
-      <div class="grid grid-cols-3 md:grid-cols-8 w-11/12 gap-0 md:gap-2">
+      <h3 data-aos="fade-up" data-aos-delay="100">Front-End</h3>
+      <div class="grid w-11/12 grid-cols-3 gap-0 md:grid-cols-8 md:gap-2">
         {
-          frontend.map((used) => (
-            <div class="logo-hover rounded-xl flex flex-col items-center justify-center gap-2 transition duration-700 hover:bg-emerald-300">
+          frontend.map((used, i) => (
+            <div
+              data-aos="fade-up"
+              data-aos-delay={i * 100 + 100}
+              class="logo-hover flex flex-col items-center justify-center gap-2 rounded-xl transition duration-700 hover:bg-emerald-300"
+            >
               <img src={used.src} alt={used.name} class="h-6 w-6 md:h-12 md:w-12" />
               <span>{used.name}</span>
             </div>
@@ -131,11 +135,15 @@ const tools = [
       </div>
     </div>
     <div class="mb-[2.75rem] flex flex-col items-center justify-center gap-4">
-      <h3>Back-End</h3>
-      <div class="grid grid-cols-3 md:grid-cols-6 w-11/12 gap-0 md:gap-2">
+      <h3 data-aos="fade-up" data-aos-delay="100">Back-End</h3>
+      <div class="grid w-11/12 grid-cols-3 gap-0 md:grid-cols-6 md:gap-2">
         {
-          backend.map((used) => (
-            <div class="logo-hover rounded-xl flex flex-col items-center justify-center gap-2 transition duration-700 hover:bg-emerald-300">
+          backend.map((used, i) => (
+            <div
+              data-aos="fade-up"
+              data-aos-delay={i * 100 + 100}
+              class="logo-hover flex flex-col items-center justify-center gap-2 rounded-xl transition duration-700 hover:bg-emerald-300"
+            >
               <img src={used.src} alt={used.name} class="h-6 w-6 md:h-12 md:w-12" />
               <span>{used.name}</span>
             </div>
@@ -144,11 +152,15 @@ const tools = [
       </div>
     </div>
     <div class="mb-[2.75rem] flex flex-col items-center justify-center gap-4">
-      <h3>Database</h3>
-      <div class="grid grid-cols-3 md:grid-cols-6 w-11/12 gap-0 md:gap-2">
+      <h3 data-aos="fade-up" data-aos-delay="100">Database</h3>
+      <div class="grid w-11/12 grid-cols-3 gap-0 md:grid-cols-6 md:gap-2">
         {
-          database.map((used) => (
-            <div class="logo-hover rounded-xl flex flex-col items-center justify-center gap-2 transition duration-700 hover:bg-emerald-300">
+          database.map((used, i) => (
+            <div
+              data-aos="fade-up"
+              data-aos-delay={i * 100 + 100}
+              class="logo-hover flex flex-col items-center justify-center gap-2 rounded-xl transition duration-700 hover:bg-emerald-300"
+            >
               <img src={used.src} alt={used.name} class="h-6 w-6 md:h-12 md:w-12" />
               <span>{used.name}</span>
             </div>
@@ -157,11 +169,15 @@ const tools = [
       </div>
     </div>
     <div class="mb-[2.75rem] flex flex-col items-center justify-center gap-4">
-      <h3>Tools</h3>
-      <div class="grid grid-cols-3 md:grid-cols-5 w-11/12 gap-0 md:gap-2">
+      <h3 data-aos="fade-up" data-aos-delay="100">Tools</h3>
+      <div class="grid w-11/12 grid-cols-3 gap-0 md:grid-cols-5 md:gap-2">
         {
-          tools.map((used) => (
-            <div class="logo-hover rounded-xl flex flex-col items-center justify-center gap-2 transition duration-700 hover:bg-emerald-300">
+          tools.map((used, i) => (
+            <div
+              data-aos="fade-up"
+              data-aos-delay={i * 100 + 100}
+              class="logo-hover flex flex-col items-center justify-center gap-2 rounded-xl transition duration-700 hover:bg-emerald-300"
+            >
               <img src={used.src} alt={used.name} class="h-6 w-6 md:h-12 md:w-12" />
               <span>{used.name}</span>
             </div>

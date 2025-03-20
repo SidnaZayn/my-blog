@@ -21,6 +21,7 @@ const {
 
     <!-- favicon -->
     <link rel="icon" type="image/svg+xml" href="/icon.png" />
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
     <SiteMeta
       title={title}
@@ -110,5 +111,9 @@ const {
         }
       }
     </style>
+    <script is:inline src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script is:inline>
+      AOS.init()
+    </script>
   </body>
 </html>

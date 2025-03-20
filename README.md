@@ -2,7 +2,6 @@
 
 ## Todo List
 
-- [x] tech stacks page
-- [x] experience page
-- [x] contanct page
 - [x] background animation
+- [x] sidenav hover color
+- [x] aos component

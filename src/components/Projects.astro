@@ -7,11 +7,11 @@ const postsLen = posts.length
 ---
 
 <div class="container">
-    <SectionHeader>Projects</SectionHeader>
-  <ul class="ml-1 my-3 grid grid-cols-1 xl:grid-cols-3 gap-4" id="projects">
+  <SectionHeader>Projects</SectionHeader>
+  <ul class="my-3 ml-1 grid grid-cols-1 gap-4 xl:grid-cols-3" id="projects">
     {
-      posts.map((post) => (
-        <li class="mx-auto"> 
+      posts.map((post,i) => (
+        <li class="mx-auto" data-aos="fade-up" data-aos-delay={i * 100}>
           <Feature title={post.data.title} href={'/project/' + post.slug} src={post.data.heroImage}>
             {post.data.description}
           </Feature>
