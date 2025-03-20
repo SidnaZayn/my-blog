@@ -3,6 +3,7 @@ import { Pagination } from 'accessible-astro-components'
 import Feature from '../../components/Feature.astro'
 import Header from '../../components/Header.astro'
 import Footer from '../../components/Footer.astro'
+import Projects from '../../components/Projects.astro'
 import DefaultLayout from '../../layouts/DefaultLayout.astro'
 import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts'
 import { getCollection } from 'astro:content'
@@ -12,27 +13,8 @@ const postsLen = posts.length
 ---
 
 <DefaultLayout title={SITE_TITLE} description={SITE_DESCRIPTION}>
-  <section class="my-12">
-    <div class="space-content container">
-      <h1>Project</h1>
-      <p class="text-lg md:text-2xl">here's all my project placed. enjoy! 🍺</p>
-    </div>
-  </section>
-  <section class="my-12">
-    <div class="container flex">
-      <!-- <p class="text-sm"><em>Post {page.start + 1} through {page.end + 1} of {page.total} total posts</em></p> -->
-      <ul class="my-3" id="projects">
-        {
-          posts.map((post) => (
-            <li>
-              <Feature title={post.data.title} href={'/project/' + post.slug} src={post.data.heroImage}>
-                {post.data.description}
-              </Feature>
-            </li>
-          ))
-        }
-      </ul>
-    </div>
+  <section class="mt-36">
+    <Projects posts={posts} />
   </section>
 </DefaultLayout>
 

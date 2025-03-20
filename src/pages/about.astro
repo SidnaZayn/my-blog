@@ -1,11 +1,15 @@
 ---
 import AboutPage from '../components/vue/About.vue'
+import About_ from '../components/About.astro'
 import DefaultLayout from '../layouts/DefaultLayout.astro'
 
 const title = 'About'
 ---
 
 <DefaultLayout title={title}>
-  <AboutPage client:only />
+  <section class="mt-36 mb-36">
+    <AboutPage client:only />
+    <About_ />
+  </section>
 </DefaultLayout>
 

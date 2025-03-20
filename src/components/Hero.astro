@@ -2,21 +2,34 @@
 const { src = '/astronaut-hero-img.webp' } = Astro.props
 ---
 
-<section class="hero h-[100vh] flex justify-center items-center">
+<section class="hero mt-20 flex h-[100vh] items-center justify-center">
   <div class="mx-5">
     <div class="grid grid-cols-1 items-center gap-8 xl:grid-cols-2 xl:gap-24">
       <div class="flex flex-col items-center gap-8 xl:items-start" data-aos="fade-up">
         <h1 class="text-center text-4xl xl:text-left xl:text-6xl">
-          <p class="text-gradient text-center xl:text-left text-base xl:text-2xl tracking-[0.44em] mb-0 xl:mb-2 xl:ml-1 font-light">SIDNA M. ZEN</p>
+          <p
+            class="text-gradient mb-0 text-center text-base font-light tracking-[0.44em] xl:mb-2 xl:ml-1 xl:text-left xl:text-2xl"
+          >
+            SIDNA M. ZEN
+          </p>
           <slot>
-            <p class="mb-3">Code Junkies</p><span class="mb-3 text-gradient" id="sub_hero"></span>
+            <p class="mb-3">Code Junkies</p><span class="text-gradient mb-3" id="sub_hero"></span>
           </slot>
         </h1>
         <button class="btn-gradient dropshadow-hover hidden xl:block">EXPLORE</button>
       </div>
-      <img class="h-80 md:h-4/5 mx-auto block dropshadow-img" src={src} alt="hero_img" decoding="async" data-aos="fade-up" data-aos-delay="200" />
+      <img
+        class="dropshadow-img mx-auto block h-80 md:h-4/5"
+        src={src}
+        alt="hero_img"
+        decoding="async"
+        data-aos="fade-up"
+        data-aos-delay="200"
+      />
       <div class="flex justify-center xl:hidden">
-        <button class="btn-gradient dropshadow-hover" data-aos="fade-up" data-aos-delay="300">EXPLORE</button>
+        <a href="#about">
+          <button class="btn-gradient dropshadow-hover" data-aos="fade-up" data-aos-delay="300">EXPLORE</button>
+        </a>
       </div>
     </div>
   </div>
@@ -61,28 +74,27 @@ const { src = '/astronaut-hero-img.webp' } = Astro.props
   }
 
   .dropshadow-img {
-    
     animation: movingShadow 10s ease-in-out infinite;
   }
 
   @keyframes movingShadow {
     0% {
-      filter: drop-shadow(0px 0px 8px rgba(255, 255, 255,0.1));
+      filter: drop-shadow(0px 0px 8px rgba(255, 255, 255, 0.1));
     }
-    15%{
-      filter: drop-shadow(-10px -10px 8px rgba(255, 255, 255,0.4));
+    15% {
+      filter: drop-shadow(-10px -10px 8px rgba(255, 255, 255, 0.4));
     }
-    30%{
-      filter: drop-shadow(10px -10px 8px rgba(255, 255, 255,0.4));
+    30% {
+      filter: drop-shadow(10px -10px 8px rgba(255, 255, 255, 0.4));
     }
-    60%{
-      filter: drop-shadow(10px 10px 8px rgba(255, 255, 255,0.4));
+    60% {
+      filter: drop-shadow(10px 10px 8px rgba(255, 255, 255, 0.4));
     }
-    75%{
-      filter: drop-shadow(-10px 10px 8px rgba(255, 255, 255,0.4));
+    75% {
+      filter: drop-shadow(-10px 10px 8px rgba(255, 255, 255, 0.4));
     }
-    100%{
-      filter: drop-shadow(0px 0px 8px rgba(255, 255, 255,0.1));
+    100% {
+      filter: drop-shadow(0px 0px 8px rgba(255, 255, 255, 0.1));
     }
   }
 

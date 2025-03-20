@@ -190,7 +190,7 @@ const usedTechStacks = [
         </div>
       </div>
     </section>
-    <section id="main">
+    <!-- <section id="main">
       <div class="mx-auto w-[90vw] px-8 md:container">
         <div class="grid grid-cols-1 gap-2">
           <h1>It's Me!</h1>
@@ -266,7 +266,7 @@ const usedTechStacks = [
           </div>
         </div>
       </div>
-    </section>
+    </section> -->
   </div>
 </template>
 

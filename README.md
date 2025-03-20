@@ -2,4 +2,4 @@
 
 ## Todo List
 
-- [x] background animation
+- [x] work exp page
