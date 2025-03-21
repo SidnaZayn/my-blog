@@ -181,13 +181,6 @@ declare module 'astro:content' {
   collection: "projects";
   data: any
 } & { render(): Render[".md"] };
-"markdown-style-guide.md": {
-	id: "markdown-style-guide.md";
-  slug: "markdown-style-guide";
-  body: string;
-  collection: "projects";
-  data: any
-} & { render(): Render[".md"] };
 "spk-motor-bekas.md": {
 	id: "spk-motor-bekas.md";
   slug: "spk-motor-bekas";
