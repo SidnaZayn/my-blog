@@ -1,8 +1,8 @@
 ---
 title: 'Galéria'
-description: 'minimalism gallery app'
+description: 'Built with the modern developer in mind, Galeria leverages the cutting-edge power of Nuxt.js, GSAP, and Tailwind CSS'
 pubDate: 'June 2024'
-heroImage: '/mockup-galeria.png'
+heroImage: '/galeria.webp'
 userId: '1'
 ---
 
