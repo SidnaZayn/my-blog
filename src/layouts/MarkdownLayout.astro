@@ -1,45 +1,28 @@
 ---
-import type { CollectionEntry } from 'astro:content'
+import { getCollection, type CollectionEntry } from 'astro:content'
 import DefaultLayout from './DefaultLayout.astro'
 import FormattedDate from '../components/FormattedDate.astro'
 import BlogSideBar from '../components/vue/BlogSideBar.vue'
 import { Breadcrumbs, BreadcrumbsItem } from 'accessible-astro-components'
-import { getRecentPages } from '../lib/api'
 import GithubFill from '../components/icons/GithubFill.astro'
-import { prefetch } from 'astro:prefetch'
 
 type Props = CollectionEntry<'projects'>['data']
 
-const { title, description, pubDate, updatedDate, heroImage, userId, projectLink='https://github.com/sidnazayn' } = Astro.props
+const { title, description, pubDate, heroImage, projectLink = 'https://github.com/sidnazayn' } = Astro.props
+const listProject = (await getCollection('projects'))
+  .map((post) => ({
+    title: post.data.title,
+    slug: post.slug,
+    pubDate: post.data.pubDate,
+  }))
+  .sort((a, b) => b.pubDate.valueOf() - a.pubDate.valueOf())
 
-// const list = await getRecentPages()
-const listProject = [
-  {
-    slug: 'markdown-style-guide',
-    title: 'Markdown Style Guide',
-  },
-  {
-    slug: 'using-mdx',
-    title: 'Using MDX',
-  },
-  {
-    slug: 'first-post',
-    title: 'First Post',
-  },
-  {
-    slug: 'second-post',
-    title: 'Second Post',
-  },
-  {
-    slug: 'third-post',
-    title: 'Third Post',
-  },
-]
+const currentUrl = Astro.url.pathname.replace('/project/', ''); // e.g., "/project/my-slug"
 ---
 
 <DefaultLayout title={title} description={description} url={title}>
   <div class="container flex">
-    <div class="w-full md:w-4/5 flex-initial mt-20">
+    <div class="mt-20 w-full flex-initial md:w-4/5">
       <div class="mt-12">
         <Breadcrumbs>
           <BreadcrumbsItem href="/" label="Home" />
@@ -56,20 +39,19 @@ const listProject = [
         </div>
       </section>
       <section class="my-12">
-        <div class="container text-justify text-sm md:text-base md:pr-[30px]" >
+        <div class="container text-justify text-sm md:pr-[30px] md:text-base">
           <slot>
             <p>{description}</p>
           </slot>
-          <div class="flex gap-3 mt-3 justify-start">
+          <div class="mt-3 flex justify-start gap-3">
             <p>Project Link:</p>
             <a href={projectLink} title="project link"><GithubFill class="h-8 w-8" /></a>
           </div>
         </div>
       </section>
     </div>
-    <div class="w-1/5 hidden lg:block mt-32">
-      <!-- <BlogSideBar class:list={'mb-3'} client:load title="Recent Blog" subhref="blog" list={list} /> -->
-      <BlogSideBar class:list={'mb-3'} client:load title="Recent Projects" subhref="project" list={listProject} />
+    <div class="mt-32 hidden w-1/5 lg:block">
+      <BlogSideBar class:list={'mb-3'} client:load title="Recent Projects" subhref="project" list={listProject} slug={currentUrl} />
     </div>
   </div>
 </DefaultLayout>
@@ -85,7 +67,7 @@ const listProject = [
     text-decoration-style: dashed;
     text-underline-offset: 7px;
   }
-  .container{
+  .container {
     @media screen and (max-width: 1024px) {
       max-width: 980px;
     }

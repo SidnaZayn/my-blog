@@ -11,7 +11,8 @@ canvas.style.pointerEvents = 'none'
 canvas.style.top = '0px'
 canvas.width = window.innerWidth
 canvas.height = window.innerHeight
-document.body.appendChild(canvas)
+const container = document.querySelector('main') || document.body
+container.appendChild(canvas)
 
 const ctx = canvas.getContext('2d')
 
@@ -59,12 +60,14 @@ for (let i = 0; i < NUMBER_OF_SNOWFLAKES; i++) {
 
 animate();
 
-window.addEventListener('resize', () => {
-    canvas.width = window.innerWidth - 20;
-    canvas.height = window.innerHeight;
-});
+// Set canvas size to container size
+const setCanvasSize = () => {
+  canvas.width = container.offsetWidth
+  canvas.height = container.offsetHeight
+}
+setCanvasSize()
 
-window.addEventListener('scroll', () => {
-    canvas.style.top = `${window.scrollY}px`;
-});
+// Update resize event
+window.addEventListener('resize', setCanvasSize)
+
 

@@ -1,19 +1,18 @@
 ---
-import { Pagination } from 'accessible-astro-components'
-import Feature from '../../components/Feature.astro'
-import Header from '../../components/Header.astro'
-import Footer from '../../components/Footer.astro'
+// import { Pagination } from 'accessible-astro-components'
+// import Feature from '../../components/Feature.astro'
+// import Header from '../../components/Header.astro'
+// import Footer from '../../components/Footer.astro'
 import Projects from '../../components/Projects.astro'
 import DefaultLayout from '../../layouts/DefaultLayout.astro'
 import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts'
 import { getCollection } from 'astro:content'
 
 const posts = (await getCollection('projects')).sort((a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf())
-const postsLen = posts.length
 ---
 
 <DefaultLayout title={SITE_TITLE} description={SITE_DESCRIPTION}>
-  <section class="mt-36">
+  <section class="mt-36 mb-12">
     <Projects posts={posts} />
   </section>
 </DefaultLayout>

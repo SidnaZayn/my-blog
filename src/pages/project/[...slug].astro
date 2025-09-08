@@ -8,9 +8,10 @@ export async function getStaticPaths() {
     props: { post },
   }))
 }
+export const prerender = true;
 type Props = CollectionEntry<'projects'>
 
-const { slug } = Astro.params
+const { slug } = Astro.params; 
 const posts = await getCollection('projects')
 const post = posts.find((page) => page.slug === slug)
 if (!post) return Astro.redirect("/404");
