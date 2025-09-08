@@ -27,11 +27,11 @@ const props = defineProps({
 </template>
 
 <style>
-.sidebar-1 {
+/* .sidebar-1 {
   grid-template-columns: auto;
   grid-gap: 1em;
-}
-ul {
+} */
+#sb ul {
   display: grid;
   grid-template-columns: 1fr;
   grid-gap: 4rem;

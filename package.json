@@ -11,16 +11,15 @@
     "preview": "astro preview"
   },
   "devDependencies": {
-    "@astrojs/mdx": "^1.1.0",
-    "@astrojs/partytown": "^2.0.0",
-    "@astrojs/tailwind": "^5.0.0",
+    "@astrojs/partytown": "^2.1.4",
+    "@astrojs/tailwind": "^6.0.2",
     "@iconify-json/ion": "^1.1.15",
     "@iconify-json/ri": "^1.1.19",
     "@iconify/vue": "^4.1.1",
     "@typescript-eslint/eslint-plugin": "^5.50.0",
     "@typescript-eslint/parser": "^5.50.0",
     "accessible-astro-components": "^2.2.0",
-    "astro": "^4.0.4",
+    "astro": "^5.13.5",
     "astro-compress": "^2.0.6",
     "astro-icon": "^1.1.1",
     "dotenv": "^16.3.1",
@@ -35,8 +34,9 @@
     "tailwindcss": "^3.2.7"
   },
   "dependencies": {
-    "@astrojs/netlify": "^4.1.1",
-    "@astrojs/vue": "^4.0.3",
+    "@astrojs/mdx": "^4.3.4",
+    "@astrojs/netlify": "^6.5.9",
+    "@astrojs/vue": "^5.1.0",
     "@iconify-json/mdi": "^1.1.64",
     "animejs": "^3.2.2",
     "typed.js": "^2.1.0",
