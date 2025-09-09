@@ -14,14 +14,16 @@
       class="contact-button w-fit justify-self-end rounded border-2 border-black text-[0.65em] font-bold text-black transition duration-700 hover:bg-white/30 hover:text-emerald-500 dark:border-white dark:text-white md:text-2xl md:tracking-widest"
       >CONTACT ME</button
     >
-    <form id="contact-form" class="contact-form col-span-3 hidden">
-      <div class="grid grid-flow-col grid-rows-6 gap-4 md:grid-rows-3">
-        <input type="text" placeholder="Name" name="Name" class="contact-input" required />
-        <textarea placeholder="Message" class="contact-input row-span-2" required></textarea>
-        <input type="email" placeholder="Email" name="Email" class="contact-input" required />
-        <input type="text" placeholder="Company" name="Company" class="contact-input" required />
-        <button type="submit" class="contact-button w-full rounded-[0.5rem] border-2 border-black">SEND</button>
-      </div>
+    <form
+      action="https://formspree.io/f/xqadwjqy"
+      method="POST"
+      id="contact-form"
+      class="contact-form col-span-3 hidden"
+    >
+      <input type="email" placeholder="Email" name="email" class="contact-input mb-2 w-full" required />
+      <textarea placeholder="Message" name="message" class="contact-input w-full" required></textarea>
+      <button type="submit" class="contact-button w-full rounded-[0.5rem] border-2 border-black">SEND</button>
+      <p id="my-form-status"></p>
     </form>
   </div>
   <script>
@@ -56,12 +58,35 @@
       })
     }
 
-    const onSubmit = (event) => {
+    const onSubmit = async (event) => {
       event.preventDefault()
-      const form = event.target
-      const formData = new FormData(form)
-      const data = Object.fromEntries(formData.entries())
-      form.reset()
+      let form = event.target
+      let status = document.getElementById('my-form-status') as HTMLElement
+
+      let data = new FormData(event.target)
+      fetch(event.target.action, {
+        method: form.method,
+        body: data,
+        headers: {
+          Accept: 'application/json',
+        },
+      })
+        .then((response) => {
+          if (response.ok) {
+            form.reset()
+          } else {
+            response.json().then((data) => {
+              if (Object.hasOwn(data, 'errors')) {
+                status.innerHTML = data['errors'].map((error) => error['message']).join(', ')
+              } else {
+                status.innerHTML = 'Oops! There was a problem submitting your form'
+              }
+            })
+          }
+        })
+        .catch(() => {
+          status.innerHTML = 'Oops! There was a problem submitting your form'
+        })
 
       const tl = anime.timeline({
         easing: 'easeInOutQuad',
