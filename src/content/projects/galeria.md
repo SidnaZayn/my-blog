@@ -4,6 +4,7 @@ description: 'Built with the modern developer in mind, Galeria leverages the cut
 pubDate: 'June 2024'
 heroImage: '/galeria.webp'
 userId: '1'
+projectLink: 'https://github.com/SidnaZayn/gallery-app'
 ---
 
 <h1>Unleash the Power of Your Portfolio with Galeria </h1><br><br>
