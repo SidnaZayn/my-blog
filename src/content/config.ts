@@ -30,4 +30,19 @@ const blogs = defineCollection({
   }),
 })
 
-export const collections = { projects, blogs }
+const work_experiences = defineCollection({
+  type: 'content',
+  // Type-check frontmatter using a schema
+  schema: z.object({
+    company: z.string(),
+    position: z.string(),
+    startDate: z.coerce.date(),
+    endDate: z.coerce.date().optional(),
+    companySite: z.string().optional(),
+    location: z.string().optional(),
+    techStacks: z.array(z.string()).optional().default([]),
+    description:z.string().optional(),
+  }),
+})
+
+export const collections = { projects, blogs, work_experiences }

@@ -1,0 +1,31 @@
+---
+import { getCollection } from 'astro:content'
+import SectionHeader from './compose/SectionHeader.astro'
+const posts = (await getCollection('work_experiences')).sort((a, b) => a.data.startDate.valueOf() - b.data.startDate.valueOf())
+
+function formatDate(date: Date | undefined): string {
+    return date ? date.toLocaleString('en-US', { month: 'short', year: 'numeric' }) : 'running';
+}
+---
+
+<div class="container">
+  <SectionHeader>Experience</SectionHeader>
+  <ul class="my-3 ml-1" id="experiences">
+    {
+      posts.map((post,i) => (
+          <li class="mx-auto py-4 flex flex-col gap-2" data-aos="fade-up" data-aos-delay={i * 100}>
+            <hr /> 
+            <div class="flex justify-between items-top">
+                <p class="text-2xl font-bold flex items-center gap-2">{`${post.data.company}`} • <span class="text-xs italic text-teal-100"><a href={post.data.companySite}>{post.data.companySite}</a></span></p>
+                <p class="text-normal text-teal-400 font-bold mt-2">{`${formatDate(post.data.startDate)} - ${formatDate(post.data.endDate)}`}</p>
+            </div>
+            <p class="mb-1 italic text-sm text-teal-100">{post.data.location}</p>
+            <p class="mb-1 font-bold text-xl">{post.data.position}</p>
+            <p class="mb-1 text-justify">{post.data.description}</p>
+            <p class="mb-1 italic text-sm text-teal-100">{post.data.techStacks?.join(' | ')}</p>
+
+        </li>
+      ))
+    }
+  </ul>
+</div>
