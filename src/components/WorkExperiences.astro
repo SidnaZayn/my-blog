@@ -1,6 +1,7 @@
 ---
 import { getCollection } from 'astro:content'
 import SectionHeader from './compose/SectionHeader.astro'
+import { Icon } from 'astro-icon/components'
 const posts = (await getCollection('work_experiences')).sort((a, b) => a.data.startDate.valueOf() - b.data.startDate.valueOf())
 
 function formatDate(date: Date | undefined): string {
@@ -10,22 +11,89 @@ function formatDate(date: Date | undefined): string {
 
 <div class="container">
   <SectionHeader>Experience</SectionHeader>
-  <ul class="my-3 ml-1" id="experiences">
-    {
-      posts.map((post,i) => (
-          <li class="mx-auto py-4 flex flex-col gap-2" data-aos="fade-up" data-aos-delay={i * 100}>
-            <hr /> 
-            <div class="flex justify-between items-top">
-                <p class="text-2xl font-bold flex items-center gap-2">{`${post.data.company}`} • <span class="text-xs italic text-teal-100"><a href={post.data.companySite}>{post.data.companySite}</a></span></p>
-                <p class="text-normal text-teal-400 font-bold mt-2">{`${formatDate(post.data.startDate)} - ${formatDate(post.data.endDate)}`}</p>
-            </div>
-            <p class="mb-1 italic text-sm text-teal-100">{post.data.location}</p>
-            <p class="mb-1 font-bold text-xl">{post.data.position}</p>
-            <p class="mb-1 text-justify">{post.data.description}</p>
-            <p class="mb-1 italic text-sm text-teal-100">{post.data.techStacks?.join(' | ')}</p>
+  <div class="relative mt-12">
+    <!-- Timeline line -->
+    <div class="absolute left-4 top-0 h-full w-0.5 bg-gradient-to-b from-emerald-500/50 via-emerald-400/30 to-transparent md:left-6"></div>
 
-        </li>
-      ))
-    }
-  </ul>
+    <ul class="flex flex-col gap-8" id="experiences">
+      {
+        posts.map((post, i) => (
+          <li class="relative pl-12 md:pl-16" data-aos="fade-up" data-aos-delay={i * 150}>
+            <!-- Timeline dot -->
+            <div class="absolute left-2 top-6 h-5 w-5 rounded-full border-2 border-emerald-400 bg-neutral-950 shadow-lg shadow-emerald-500/20 md:left-4 md:h-6 md:w-6">
+              <div class="absolute inset-1 animate-pulse rounded-full bg-emerald-400/50"></div>
+            </div>
+
+            <!-- Card -->
+            <div class="group rounded-xl border border-neutral-700/50 bg-neutral-900/50 p-5 backdrop-blur-sm transition-all duration-300 hover:border-emerald-500/30 hover:bg-neutral-900/80 hover:shadow-lg hover:shadow-emerald-500/5 md:p-6">
+              <!-- Header: Company & Date -->
+              <div class="flex flex-col gap-2 md:flex-row md:items-start md:justify-between">
+                <div class="flex flex-col">
+                  <h3 class="text-xl font-bold text-white transition-colors group-hover:text-emerald-400 md:text-2xl">{post.data.company}</h3>
+                  {post.data.companySite && (
+                    <a
+                      href={post.data.companySite}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="flex items-center gap-1 text-xs text-neutral-400 transition-colors hover:text-emerald-400"
+                    >
+                      <Icon name="mdi:link" class="h-3 w-3" />
+                      {post.data.companySite}
+                    </a>
+                  )}
+                </div>
+                <div class="flex items-center gap-2 rounded-full bg-emerald-500/10 px-3 py-1 text-sm font-semibold text-emerald-400">
+                  <Icon name="mdi:calendar" class="h-4 w-4" />
+                  <span>{formatDate(post.data.startDate)} - {formatDate(post.data.endDate)}</span>
+                </div>
+              </div>
+
+              <!-- Position -->
+              <p class="mt-3 text-lg font-semibold text-emerald-300">{post.data.position}</p>
+
+              <!-- Location -->
+              {post.data.location && (
+                <p class="mt-1 flex items-center gap-1 text-sm text-neutral-400">
+                  <Icon name="mdi:location" class="h-4 w-4" />
+                  {post.data.location}
+                </p>
+              )}
+
+              <!-- Divider -->
+              <div class="my-4 h-px bg-gradient-to-r from-transparent via-neutral-700 to-transparent"></div>
+
+              <!-- Description -->
+              <p class="text-left leading-relaxed text-neutral-300 md:text-justify">{post.data.description}</p>
+
+              <!-- Tech Stacks -->
+              {post.data.techStacks && post.data.techStacks.length > 0 && (
+                <div class="mt-4 flex flex-wrap gap-2">
+                  {post.data.techStacks.map((tech) => (
+                    <span class="rounded-full bg-emerald-500/10 px-3 py-1 text-xs font-medium text-emerald-400 transition-colors hover:bg-emerald-500/20">
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              )}
+            </div>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
 </div>
+
+<style>
+  @keyframes pulse-glow {
+    0%, 100% {
+      opacity: 0.5;
+    }
+    50% {
+      opacity: 1;
+    }
+  }
+
+  #experiences li:hover .animate-pulse {
+    animation: pulse-glow 1.5s ease-in-out infinite;
+  }
+</style>

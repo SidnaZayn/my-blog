@@ -1,4 +1,5 @@
 ---
+import { Icon } from 'astro-icon/components'
 ---
 
 <div class="container h-fit">
@@ -6,24 +7,67 @@
     data-aos="flip-up"
     data-aos-delay="300"
     id="card-contact"
-    class="card-contact mx-auto grid h-full w-[20rem] grid-cols-3 items-center rounded-xl bg-gradient-to-tr from-emerald-400 via-emerald-500 to-emerald-600 p-4 text-white md:w-full"
+    class="card-contact mx-auto grid h-full w-full max-w-2xl grid-cols-3 items-center rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-md transition-all duration-300 hover:border-emerald-500/30 hover:shadow-lg hover:shadow-emerald-500/10 md:p-10"
   >
-    <h1 class="col-span-2 text-[0.75em] md:text-2xl" id="contact-text">GOT A PROJECT IN MIND?</h1>
+    <div class="col-span-2 flex flex-col items-start gap-2">
+      <div class="mb-2 flex items-center gap-3">
+        <div class="flex h-10 w-10 items-center justify-center rounded-full bg-emerald-500/20 md:h-12 md:w-12">
+          <Icon name="mdi:email" class="h-5 w-5 text-emerald-400 md:h-6 md:w-6" />
+        </div>
+        <h1 class="text-base font-bold tracking-wide text-white md:text-2xl" id="contact-text">GOT A PROJECT IN MIND?</h1>
+      </div>
+      <p class="hidden text-xs text-white/50 md:block md:text-sm">Let's work together and bring your ideas to life.</p>
+    </div>
     <button
       id="contact-button"
-      class="contact-button w-fit justify-self-end rounded border-2 border-black text-[0.65em] font-bold text-black transition duration-700 hover:bg-white/30 hover:text-emerald-500 dark:border-white dark:text-white md:text-2xl md:tracking-widest"
-      >CONTACT ME</button
+      class="contact-button group flex w-fit items-center gap-2 justify-self-end rounded-full border-0 bg-emerald-500 px-4 py-2 text-xs font-bold text-white shadow-lg shadow-emerald-500/30 transition-all duration-300 hover:bg-emerald-400 hover:shadow-emerald-500/50 md:px-6 md:py-3 md:text-base"
     >
+      CONTACT ME
+      <Icon name="mdi:arrow-right" class="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1 md:h-5 md:w-5" />
+    </button>
     <form
       action="https://formspree.io/f/xqadwjqy"
       method="POST"
       id="contact-form"
       class="contact-form col-span-3 hidden"
     >
-      <input type="email" placeholder="Email" name="email" class="contact-input mb-2 w-full" required />
-      <textarea placeholder="Message" name="message" class="contact-input w-full" required></textarea>
-      <button type="submit" class="contact-button w-full rounded-[0.5rem] border-2 border-black">SEND</button>
-      <p id="my-form-status"></p>
+      <div class="mb-4">
+        <label for="email" class="mb-2 block text-sm text-white/70">Your Email</label>
+        <input
+          type="email"
+          placeholder="email@example.com"
+          name="email"
+          class="contact-input w-full rounded-xl border border-white/20 bg-white/10 px-4 py-3 text-white placeholder-white/50 backdrop-blur-sm transition-all duration-300 focus:border-emerald-400 focus:outline-none focus:ring-2 focus:ring-emerald-400/20"
+          required
+        />
+      </div>
+      <div class="mb-4">
+        <label for="message" class="mb-2 block text-sm text-white/70">Your Message</label>
+        <textarea
+          placeholder="Tell me about your project..."
+          name="message"
+          class="contact-input w-full resize-none rounded-xl border border-white/20 bg-white/10 px-4 py-3 text-white placeholder-white/50 backdrop-blur-sm transition-all duration-300 focus:border-emerald-400 focus:outline-none focus:ring-2 focus:ring-emerald-400/20"
+          required
+        ></textarea>
+      </div>
+      <div class="flex gap-3">
+        <button
+          type="submit"
+          class="contact-button flex flex-1 items-center justify-center gap-2 rounded-xl border-0 bg-emerald-500 py-3 text-sm font-bold text-white shadow-lg shadow-emerald-500/30 transition-all duration-300 hover:bg-emerald-400"
+        >
+          <Icon name="mdi:send" class="h-4 w-4" />
+          SEND MESSAGE
+        </button>
+        <button
+          type="button"
+          id="cancel-button"
+          class="cancel-button flex items-center justify-center gap-2 rounded-xl border border-white/20 bg-white/5 py-3 px-6 text-sm font-bold text-white/70 transition-all duration-300 hover:border-red-500/30 hover:bg-red-500/10 hover:text-red-400"
+        >
+          <Icon name="mdi:close" class="h-4 w-4" />
+          CANCEL
+        </button>
+      </div>
+      <p id="my-form-status" class="mt-3 text-center text-sm"></p>
     </form>
   </div>
   <script>
@@ -124,8 +168,48 @@
       })
     }
 
+    const onCancel = () => {
+      const tl = anime.timeline({
+        easing: 'easeInOutQuad',
+        duration: 500,
+      })
+
+      tl.add({
+        targets: '.contact-form',
+        opacity: 0,
+        loop: false,
+      })
+
+      setTimeout(() => {
+        document.querySelector('.contact-form')?.classList.add('hidden')
+
+        const contactText = document.getElementById('contact-text')
+        const contactButton = document.getElementById('contact-button')
+
+        if (contactButton && contactText) {
+          contactButton.classList.remove('hidden')
+          contactText.classList.remove('hidden')
+          contactButton.style.opacity = '0'
+          contactText.style.opacity = '0'
+        }
+      }, 500)
+
+      tl.add({
+        targets: '.card-contact',
+        rotateY: [{ value: '0deg', duration: 1000 }],
+        loop: false,
+      })
+
+      tl.add({
+        targets: ['#contact-button', '#contact-text'],
+        opacity: 1,
+        loop: false,
+      })
+    }
+
     document.getElementById('contact-button')?.addEventListener('click', onClick)
     document.getElementById('contact-form')?.addEventListener('submit', onSubmit)
+    document.getElementById('cancel-button')?.addEventListener('click', onCancel)
   </script>
 </div>
 
@@ -134,10 +218,7 @@
     opacity: 0;
   }
 
-  .contact-input {
-    border: 2px solid black;
-    padding: 0.5rem;
-    border-radius: 0.5rem;
-    color: black;
+  .contact-input:focus {
+    box-shadow: 0 0 0 2px rgba(52, 211, 153, 0.2);
   }
 </style>
