@@ -1,8 +1,8 @@
 ---
 company: 'Nusantara Techno'
 position: 'Full-stack Web Developer Intern'
-startDate: 'September 2022'
-endDate: 'December 2022'
+startDate: 'September 2020'
+endDate: 'Agust 2021'
 companySite: 'imaniprima.com'
 location: 'Magelang, Indonesia'
 techStacks: ['Laravel','Bootstrap','MySQL']

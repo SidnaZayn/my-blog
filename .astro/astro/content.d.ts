@@ -156,37 +156,53 @@ declare module 'astro:content' {
   slug: "personaleblog";
   body: string;
   collection: "blogs";
-  data: any
+  data: InferEntrySchema<"blogs">
 } & { render(): Render[".md"] };
 };
 "projects": {
-"creative-hub.md": {
-	id: "creative-hub.md";
-  slug: "creative-hub";
-  body: string;
-  collection: "projects";
-  data: any
-} & { render(): Render[".md"] };
-"deteksi-plat.md": {
-	id: "deteksi-plat.md";
-  slug: "deteksi-plat";
-  body: string;
-  collection: "projects";
-  data: any
-} & { render(): Render[".md"] };
 "galeria.md": {
 	id: "galeria.md";
   slug: "galeria";
   body: string;
   collection: "projects";
-  data: any
+  data: InferEntrySchema<"projects">
 } & { render(): Render[".md"] };
-"spk-motor-bekas.md": {
-	id: "spk-motor-bekas.md";
-  slug: "spk-motor-bekas";
+"pomodotask.md": {
+	id: "pomodotask.md";
+  slug: "pomodotask";
   body: string;
   collection: "projects";
-  data: any
+  data: InferEntrySchema<"projects">
+} & { render(): Render[".md"] };
+"raffle-draw.md": {
+	id: "raffle-draw.md";
+  slug: "raffle-draw";
+  body: string;
+  collection: "projects";
+  data: InferEntrySchema<"projects">
+} & { render(): Render[".md"] };
+};
+"work_experiences": {
+"imani-prima-intern.md": {
+	id: "imani-prima-intern.md";
+  slug: "imani-prima-intern";
+  body: string;
+  collection: "work_experiences";
+  data: InferEntrySchema<"work_experiences">
+} & { render(): Render[".md"] };
+"imani-prima.md": {
+	id: "imani-prima.md";
+  slug: "imani-prima";
+  body: string;
+  collection: "work_experiences";
+  data: InferEntrySchema<"work_experiences">
+} & { render(): Render[".md"] };
+"nusantara-techno.md": {
+	id: "nusantara-techno.md";
+  slug: "nusantara-techno";
+  body: string;
+  collection: "work_experiences";
+  data: InferEntrySchema<"work_experiences">
 } & { render(): Render[".md"] };
 };
 
@@ -198,5 +214,5 @@ declare module 'astro:content' {
 
 	type AnyEntryMap = ContentEntryMap & DataEntryMap;
 
-	export type ContentConfig = never;
+	export type ContentConfig = typeof import("./../../src/content/config.js");
 }
