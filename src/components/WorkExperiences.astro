@@ -2,7 +2,7 @@
 import { getCollection } from 'astro:content'
 import SectionHeader from './compose/SectionHeader.astro'
 import { Icon } from 'astro-icon/components'
-const posts = (await getCollection('work_experiences')).sort((a, b) => a.data.startDate.valueOf() - b.data.startDate.valueOf())
+const posts = (await getCollection('work_experiences')).sort((a, b) => b.data.startDate.valueOf() - a.data.startDate.valueOf())
 
 function formatDate(date: Date | undefined): string {
     return date ? date.toLocaleString('en-US', { month: 'short', year: 'numeric' }) : 'running';
