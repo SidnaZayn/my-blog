@@ -1,9 +1,9 @@
 {
-  "name": "learn-astro-template",
-  "description": "An Accessible Starter Theme for Astro including several accessiblity features and tools to help you build faster.",
+  "name": "Sidna M. Zen - Personal Portfolio",
+  "description": "A personal portfolio website built with Astro and Vue.",
   "version": "3.0.0",
-  "author": "Mark Teekman",
-  "homepage": "https://accessible-astro.netlify.app/",
+  "author": "Sidna M. Zen",
+  "homepage": "https://hi-zen.netlify.app/",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",

@@ -10,9 +10,6 @@
         "description": {
           "type": "string"
         },
-        "slug": {
-          "type": "string"
-        },
         "pubDate": {
           "anyOf": [
             {
